@@ -4,7 +4,6 @@
 public class FloatBoolAndCount : FloatBool
 {
 	public IntData Count;
-	private int holdCount;
 
 	private void OnEnable()
 	{
@@ -15,18 +14,10 @@ public class FloatBoolAndCount : FloatBool
 	{
 		get
 		{
-			if (Count.Value > 0)
-			{
-				if (Input.GetButtonDown(InputType))
-				{
-					Count.Value--;
-					return value;
-				}
-				return 0;
-			}
-			return 0;
+			if (Count.Value <= 0) return 0;
+			if (!UnityEngine.Input.GetButtonDown(InputType)) return 0;
+			Count.Value--;
+			return value;
 		}
 	}
 }
-
-

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [CreateAssetMenu]
-public class FloatInput : FloatData
+public class FloatAxis : FloatData
 {
 	public string Axis = "Horizontal";
 	

@@ -2,10 +2,12 @@
 
 public class TriggerInvoke : MonoBehaviour
 {
-	public ChangeSpriteColor ChangeColor;
+	public InvokeBase InvokeObject;
 	
 	private void OnTriggerEnter(Collider other)
 	{
-		ChangeColor.Invoke(other.GetComponent<SpriteRenderer>());
+		InvokeObject.Invoke(other.GetComponent<SpriteRenderer>());
+		print(other);
+		//ChangeColor.Invoke(other.GetComponent<SpriteRenderer>());
 	}
 }

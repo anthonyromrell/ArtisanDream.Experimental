@@ -1,12 +1,15 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-public class TriggerEvent : MonoBehaviour
+namespace ArtisanDream.Experimental.Behaviours
 {
-    public UnityEvent Event;
-
-    private void OnTriggerEnter(Collider other)
+    public class TriggerEvent : MonoBehaviour
     {
-        Event.Invoke();
+        public UnityEvent Event;
+
+        private void OnTriggerEnter(Collider other)
+        {
+            Event.Invoke();
+        }
     }
 }

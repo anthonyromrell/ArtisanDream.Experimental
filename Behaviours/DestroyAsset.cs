@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
 
-public class DestroyAsset : MonoBehaviour
+namespace ArtisanDream.Experimental.Behaviours
 {
-    public void DestroyThis()
+    public class DestroyAsset : MonoBehaviour
     {
-        Destroy(gameObject);
+        public void DestroyThis()
+        {
+            Destroy(gameObject);
+        }
     }
 }

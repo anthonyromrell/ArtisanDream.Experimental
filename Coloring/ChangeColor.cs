@@ -1,23 +1,25 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using ArtisanDream.Experimental.Objects;
 using UnityEngine;
 
-[CreateAssetMenu]
-public class ChangeColor : ScriptableObject
+namespace ArtisanDream.Experimental.Coloring
 {
-	public ColorData ObjectColor;
+	[CreateAssetMenu]
+	public class ChangeColor : ScriptableObject
+	{
+		public ColorData ObjectColor;
 	
-	//private SpriteRenderer sRenderer;
+		//private SpriteRenderer sRenderer;
 
-	public void Invoke(SpriteRenderer sRenderer)
-	{
-		//sRenderer = GetComponent<SpriteRenderer>();
-		sRenderer.color = ObjectColor.Value;
-	}
+		public void Invoke(SpriteRenderer sRenderer)
+		{
+			//sRenderer = GetComponent<SpriteRenderer>();
+			sRenderer.color = ObjectColor.Value;
+		}
 	
-	public void Invoke(Material sRenderer)
-	{
-		//sRenderer = GetComponent<SpriteRenderer>();
-		sRenderer.color = ObjectColor.Value;
+		public void Invoke(Material sRenderer)
+		{
+			//sRenderer = GetComponent<SpriteRenderer>();
+			sRenderer.color = ObjectColor.Value;
+		}
 	}
 }

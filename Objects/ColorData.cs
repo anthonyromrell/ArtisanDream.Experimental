@@ -1,9 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-[CreateAssetMenu]
-public class ColorData : ScriptableObject {
+namespace ArtisanDream.Experimental.Objects
+{
+	[CreateAssetMenu]
+	public class ColorData : ScriptableObject {
 
-	public Color Value = Color.blue;
+		public UnityEngine.Color Value = UnityEngine.Color.blue;
+	}
 }

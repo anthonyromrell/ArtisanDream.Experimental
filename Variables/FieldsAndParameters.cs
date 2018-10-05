@@ -1,11 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-[CreateAssetMenu]
-public class FieldsAndParameters : ScriptableObject
+namespace ArtisanDream.Experimental.Variables
 {
-	public int ammo = 5;
-	public int Ammo;
+	[CreateAssetMenu]
+	public class FieldsAndParameters : ScriptableObject
+	{
+		public int ammo = 5;
+		public int Ammo;
 
+	}
 }

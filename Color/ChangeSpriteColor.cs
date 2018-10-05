@@ -1,12 +1,15 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu]
-public class ChangeSpriteColor : ScriptableObject
+namespace ArtisanDream.Experimental.Color
 {
-	public ColorID Color;
-	
-	public void Invoke (SpriteRenderer spriteRenderer)
+	[CreateAssetMenu]
+	public class ChangeSpriteColor : ScriptableObject
 	{
-		spriteRenderer.color = Color.Value;
+		public ColorID Color;
+	
+		public void Invoke (SpriteRenderer spriteRenderer)
+		{
+			spriteRenderer.color = Color.Value;
+		}
 	}
 }

@@ -1,12 +1,16 @@
-﻿using UnityEngine;
+﻿using ArtisanDream.Tools.Actions;
+using UnityEngine;
 
 //Made By Anthony Romrell
-public class StartActionBehaviour : MonoBehaviour
+namespace ArtisanDream.Experimental.Behaviours
 {
-    public GameAction GameAction;
-
-    private void Start()
+    public class StartActionBehaviour : MonoBehaviour
     {
-        GameAction.Call(transform);
+        public GameAction GameAction;
+
+        private void Start()
+        {
+            GameAction.Call(transform);
+        }
     }
 }

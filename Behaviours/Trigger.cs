@@ -1,13 +1,18 @@
 
+using ArtisanDream.Tools.Functions;
+using ArtisanDream.Tools.Objects;
 using UnityEngine;
 
-public class Trigger : MonoBehaviour
+namespace ArtisanDream.Experimental.Behaviours
 {
-	public FloatBase Data;
-	public FunctionBase Work;
-	
-	private void OnTriggerEnter(Collider other)
+	public class Trigger : MonoBehaviour
 	{
-		Work.Run(Data);
+		public FloatBase Data;
+		public FunctionBase Work;
+	
+		private void OnTriggerEnter(Collider other)
+		{
+			Work.Run(Data);
+		}
 	}
 }

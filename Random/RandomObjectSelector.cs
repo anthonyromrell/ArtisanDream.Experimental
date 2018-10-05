@@ -1,15 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
-public class RandomObjectSelector : ScriptableObject
+namespace ArtisanDream.Experimental.Random
 {
-	public List<Object> ObjectList;
-	
-	public Object ReturnRandomObject()
+	[CreateAssetMenu]
+	public class RandomObjectSelector : ScriptableObject
 	{
-		var value = Random.Range(0, ObjectList.Count-1);
-		return ObjectList[value];
+		public List<Object> ObjectList;
+	
+		public Object ReturnRandomObject()
+		{
+			var value = UnityEngine.Random.Range(0, ObjectList.Count-1);
+			return ObjectList[value];
+		}
 	}
 }

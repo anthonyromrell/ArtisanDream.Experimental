@@ -1,26 +1,26 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Movements : MonoBehaviour {
+namespace ArtisanDream.Experimental.Transforming
+{
+	public class Movements : MonoBehaviour {
 
-	public enum MovementType
-	{
-		MoveX,
-		MoveY,
-		MoveZ
-	}
+		public enum MovementType
+		{
+			MoveX,
+			MoveY,
+			MoveZ
+		}
 
-	public MovementType CurrentMovementType;
+		public MovementType CurrentMovementType;
 
-	public Vector3 Movement;
-	public float Speed;
+		public Vector3 Movement;
+		public float Speed;
 
 	
-	// Update is called once per frame
-	void Update () {
-		switch (CurrentMovementType)
-		{
+		// Update is called once per frame
+		void Update () {
+			switch (CurrentMovementType)
+			{
 				case MovementType.MoveX:
 					Movement.x = Speed;
 					break;
@@ -30,7 +30,8 @@ public class Movements : MonoBehaviour {
 				case MovementType.MoveZ:
 					Movement.z = Speed;
 					break;
+			}
+			transform.Rotate(Movement*Time.deltaTime);
 		}
-		transform.Rotate(Movement*Time.deltaTime);
 	}
 }

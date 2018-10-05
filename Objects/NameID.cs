@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu]
-public class NameID : ScriptableObject {
+namespace ArtisanDream.Experimental.Objects
+{
+    [CreateAssetMenu]
+    public class NameID : ScriptableObject {
 
+    }
 }

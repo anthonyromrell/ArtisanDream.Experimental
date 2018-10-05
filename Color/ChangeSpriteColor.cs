@@ -1,13 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+[CreateAssetMenu]
 public class ChangeSpriteColor : ScriptableObject
 {
-	private SpriteRenderer renderer;
+	public ColorID Color;
 	
-	public void Invoke (ColorID color, SpriteRenderer spriteRenderer)
+	public void Invoke (SpriteRenderer spriteRenderer)
 	{
-		spriteRenderer.color = color.Value;
+		spriteRenderer.color = Color.Value;
 	}
 }

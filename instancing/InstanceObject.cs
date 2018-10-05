@@ -1,13 +1,11 @@
 ﻿using UnityEngine;
 
+[CreateAssetMenu]
 //Made By Anthony Romrell
-public class InstanceObject : MonoBehaviour
+public class InstanceObject : ScriptableObject
 {
-
-	public GameObject Instance;
-	
-	private void Start()
+	public void Invoke(GameObject instance)
 	{
-		Instantiate(Instance);
+		Instantiate(instance);
 	}
 }

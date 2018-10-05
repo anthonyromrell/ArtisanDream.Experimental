@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
 
-namespace ArtisanDream.Experimental.Dragable
+namespace ArtisanDream.Experimental.Draggable
 {
-    [CreateAssetMenu(fileName = "Draggable", menuName = "Draggable/Drag With Limited Rotation")]
-    public class DragLimitedRotation 
+    public class DragLimitedRotation: DragRotationBase
     {
         public float MinLimit;
         public float MaxLimit;
@@ -11,9 +10,12 @@ namespace ArtisanDream.Experimental.Dragable
 
         private void OnMouseDown()
         {
-      
+    
+        }
+
+        public override void OnMouseDrag()
+        {
         
-       
         }
     }
 }

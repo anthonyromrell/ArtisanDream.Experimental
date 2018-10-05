@@ -3,8 +3,14 @@
 namespace ArtisanDream.Experimental.Objects
 {
     [CreateAssetMenu(fileName = "TransformVariable")]
-    public class TransformVariable : ScriptableObject
+    public class Vector3Data : ScriptableObject
     {
-        public Transform Value { get; set; }
+        public Vector3 value;
+
+        public Vector3 Value
+        {
+            get => value;
+            set => this.value = value;
+        }
     }
 }

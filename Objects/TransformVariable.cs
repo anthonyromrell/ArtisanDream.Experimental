@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "TransformVariable")]
-public class TransformVariable : ScriptableObject
+namespace ArtisanDream.Experimental.Objects
 {
-    public Transform Value { get; set; }
+    [CreateAssetMenu(fileName = "TransformVariable")]
+    public class TransformVariable : ScriptableObject
+    {
+        public Transform Value { get; set; }
+    }
 }

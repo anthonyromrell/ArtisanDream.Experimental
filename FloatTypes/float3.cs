@@ -1,15 +1,18 @@
 ﻿using UnityEngine;
 
-public class float3
+namespace ArtisanDream.Experimental.FloatTypes
 {
-	public float x, y, z;
-
-	public float3(float x, float y, float z)
+	public class float3
 	{
-		this.x = x;
-		this.y = y;
-		this.z = z;
-	}
+		public float x, y, z;
 
-	public Vector3 v3;
+		public float3(float x, float y, float z)
+		{
+			this.x = x;
+			this.y = y;
+			this.z = z;
+		}
+
+		public Vector3 v3;
+	}
 }

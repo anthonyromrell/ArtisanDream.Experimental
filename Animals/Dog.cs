@@ -1,13 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Dog : Mammal
+﻿namespace ArtisanDream.Experimental.Animals
 {
-	public string Bark;
-
-	public void OnBark()
+	public class Dog : Mammal
 	{
-		print(Bark);
-	}	
+		public string Bark;
+
+		public void OnBark()
+		{
+			print(Bark);
+		}	
+	}
 }

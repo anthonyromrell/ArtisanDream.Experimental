@@ -1,22 +1,24 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using ArtisanDream.Experimental.Character.MovePatterns;
 using UnityEngine;
 
 //Made By Anthony Romrell
-[RequireComponent(typeof(CharacterController))]
-
-public class CharacterMovement : MonoBehaviour 
+namespace ArtisanDream.Experimental.Character.Behaviours
 {
-	
-	private CharacterController controller;
-	public MovePattern Pattern;
+	[RequireComponent(typeof(CharacterController))]
 
-	private void Start()
+	public class CharacterMovement : MonoBehaviour 
 	{
-		controller = GetComponent<CharacterController>();
-	}
+	
+		private CharacterController controller;
+		public MovePattern Pattern;
 
-	void Update() {
-		Pattern.Invoke(controller, transform);
+		private void Start()
+		{
+			controller = GetComponent<CharacterController>();
+		}
+
+		void Update() {
+			Pattern.Invoke(controller, transform);
+		}
 	}
 }

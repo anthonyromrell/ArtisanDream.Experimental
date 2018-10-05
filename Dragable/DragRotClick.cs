@@ -1,11 +1,12 @@
-﻿using UnityEngine;
-
-public class DragRotClick : DragRotationBase
+﻿namespace ArtisanDream.Experimental.Dragable
 {
-	private bool canRot = true;
-	
-	public override void OnMouseDrag()
+	public class DragRotClick : DragRotationBase
 	{
-		canRot = true;
+		private bool canRot = true;
+	
+		public override void OnMouseDrag()
+		{
+			canRot = true;
+		}
 	}
 }

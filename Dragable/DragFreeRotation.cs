@@ -1,14 +1,17 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "Draggable", menuName = "Draggable/Drag With Rotation")]
-public class DragFreeRotation : DragRotationBase
+namespace ArtisanDream.Experimental.Dragable
 {
-	private float distance;
-	
-	public override void OnMouseDrag()
+	[CreateAssetMenu(fileName = "Draggable", menuName = "Draggable/Drag With Rotation")]
+	public class DragFreeRotation : DragRotationBase
 	{
-		distance = Input.GetAxis(AxisName) * Speed;
+		private float distance;
+	
+		public override void OnMouseDrag()
+		{
+			distance = Input.GetAxis(AxisName) * Speed;
 	
 		
+		}
 	}
 }

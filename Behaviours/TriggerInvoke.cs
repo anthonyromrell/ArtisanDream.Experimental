@@ -1,11 +1,15 @@
-﻿using UnityEngine;
+﻿using ArtisanDream.Experimental.Color;
+using UnityEngine;
 
-public class TriggerInvoke : MonoBehaviour
+namespace ArtisanDream.Experimental.Behaviours
 {
-	public ChangeSpriteColor ChangeColor;
-	
-	private void OnTriggerEnter(Collider other)
+	public class TriggerInvoke : MonoBehaviour
 	{
-		ChangeColor.Invoke(other.GetComponent<SpriteRenderer>());
+		public ChangeSpriteColor ChangeColor;
+	
+		private void OnTriggerEnter(Collider other)
+		{
+			ChangeColor.Invoke(other.GetComponent<SpriteRenderer>());
+		}
 	}
 }

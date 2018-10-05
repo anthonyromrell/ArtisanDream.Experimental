@@ -1,47 +1,49 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using ArtisanDream.Tools.Objects;
 using UnityEngine;
 
 //Made By Anthony Romrell
-[CreateAssetMenu]
-public class MovePattern : ScriptableObject 
+namespace ArtisanDream.Experimental.Character.MovePatterns
 {
-	public FloatData gravity;
+	[CreateAssetMenu]
+	public class MovePattern : ScriptableObject 
+	{
+		public FloatData gravity;
 
-	public FloatData MoveX, MoveY, MoveZ;
-	public FloatData RotX, RotY, RotZ;
+		public FloatData MoveX, MoveY, MoveZ;
+		public FloatData RotX, RotY, RotZ;
 	
-	protected Vector3 moveDirection;
-	private Vector3 rotDirection;
+		protected Vector3 moveDirection;
+		private Vector3 rotDirection;
 
-	private void OnEnable()
-	{
-		moveDirection = Vector3.zero;
-		rotDirection = Vector3.zero;
-	}
-
-
-	public virtual void Invoke(CharacterController controller, Transform transform)
-	{
-		if (controller.isGrounded)
+		private void OnEnable()
 		{
-			Move(transform);
+			moveDirection = Vector3.zero;
+			rotDirection = Vector3.zero;
 		}
 
-		Move(controller);
-	}
-	
-	protected void Move(Transform transform)
-	{
-		moveDirection.Set(MoveX.Value, MoveY.Value, MoveZ.Value);
-		rotDirection.Set(RotX.Value, RotY.Value, RotZ.Value);
-		transform.Rotate(rotDirection);
-		moveDirection = transform.TransformDirection(moveDirection);
-	}
 
-	protected void Move(CharacterController controller)
-	{
-		moveDirection.y -= gravity.Value * Time.deltaTime;
-		controller.Move(moveDirection * Time.deltaTime);
+		public virtual void Invoke(CharacterController controller, Transform transform)
+		{
+			if (controller.isGrounded)
+			{
+				Move(transform);
+			}
+
+			Move(controller);
+		}
+	
+		protected void Move(Transform transform)
+		{
+			moveDirection.Set(MoveX.Value, MoveY.Value, MoveZ.Value);
+			rotDirection.Set(RotX.Value, RotY.Value, RotZ.Value);
+			transform.Rotate(rotDirection);
+			moveDirection = transform.TransformDirection(moveDirection);
+		}
+
+		protected void Move(CharacterController controller)
+		{
+			moveDirection.y -= gravity.Value * Time.deltaTime;
+			controller.Move(moveDirection * Time.deltaTime);
+		}
 	}
 }

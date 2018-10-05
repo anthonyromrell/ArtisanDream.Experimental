@@ -1,20 +1,23 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-public class Animal : MonoBehaviour
+namespace ArtisanDream.Experimental.Animals
 {
-	public Color AnimalColor = Color.blue;
-	public ParticleSystem Fx;
-	
-	public UnityEvent Event;
-	
-	public void OnMouseDown()
+	public class Animal : MonoBehaviour
 	{
-		Event.Invoke();
-	}
+		public UnityEngine.Color AnimalColor = UnityEngine.Color.blue;
+		public ParticleSystem Fx;
+	
+		public UnityEvent Event;
+	
+		public void OnMouseDown()
+		{
+			Event.Invoke();
+		}
 
-	public void Start()
-	{
-		GetComponent<Renderer>().material.color = AnimalColor;
+		public void Start()
+		{
+			GetComponent<Renderer>().material.color = AnimalColor;
+		}
 	}
 }

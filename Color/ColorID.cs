@@ -1,9 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using ArtisanDream.Experimental.Objects;
 using UnityEngine;
 
-[CreateAssetMenu]
-public class ColorID : NameID
+namespace ArtisanDream.Experimental.Color
 {
-	public Color Value = Color.green;
+	[CreateAssetMenu]
+	public class ColorID : NameID
+	{
+		public UnityEngine.Color Value = UnityEngine.Color.green;
+	}
 }

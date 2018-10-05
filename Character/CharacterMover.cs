@@ -1,35 +1,39 @@
-﻿using UnityEngine;
+﻿using ArtisanDream.Tools.Objects;
+using UnityEngine;
 
-[RequireComponent(typeof(CharacterController))]
-public class CharacterMover : MonoBehaviour
+namespace ArtisanDream.Experimental.Character
 {
-    private CharacterController controller;
-    private Vector3 position, rotation;
-    public float Speed = 3.0f, JumpSpeed = 4.0f, Gravity = 9.81f;
-    public FloatData X, Y, Z, Rx, Ry, Rz;
-
-    void Start()
+    [RequireComponent(typeof(CharacterController))]
+    public class CharacterMover : MonoBehaviour
     {
-        controller = GetComponent<CharacterController>();
-    }
+        private CharacterController controller;
+        private Vector3 position, rotation;
+        public float Speed = 3.0f, JumpSpeed = 4.0f, Gravity = 9.81f;
+        public FloatData X, Y, Z, Rx, Ry, Rz;
 
-    void Update()
-    {
-        if (controller.isGrounded)
+        void Start()
         {
-            rotation.Set(Rx.Value, Ry.Value, Rz.Value);
-            transform.Rotate(rotation);
-            position.Set(X.Value, Y.Value, Z.Value);
-            position = transform.TransformDirection(position);
-
-            if (Input.GetButton("Jump"))
-            {
-                position.y = JumpSpeed;
-            }
+            controller = GetComponent<CharacterController>();
         }
 
-        position.y -= Gravity * Time.deltaTime;
+        void Update()
+        {
+            if (controller.isGrounded)
+            {
+                rotation.Set(Rx.Value, Ry.Value, Rz.Value);
+                transform.Rotate(rotation);
+                position.Set(X.Value, Y.Value, Z.Value);
+                position = transform.TransformDirection(position);
+
+                if (Input.GetButton("Jump"))
+                {
+                    position.y = JumpSpeed;
+                }
+            }
+
+            position.y -= Gravity * Time.deltaTime;
         
-        controller.Move(position * Time.deltaTime);
+            controller.Move(position * Time.deltaTime);
+        }
     }
 }

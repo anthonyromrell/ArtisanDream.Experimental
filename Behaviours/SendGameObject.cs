@@ -1,12 +1,16 @@
-﻿using UnityEngine;
+﻿using ArtisanDream.Tools.Actions;
+using UnityEngine;
 
 //Made By Anthony Romrell
-public class SendGameObject : MonoBehaviour
+namespace ArtisanDream.Experimental.Behaviours
 {
-    public GameAction Send;
-
-    private void Start()
+    public class SendGameObject : MonoBehaviour
     {
-        Send.Call(gameObject);
+        public GameAction Send;
+
+        private void Start()
+        {
+            Send.Call(gameObject);
+        }
     }
 }

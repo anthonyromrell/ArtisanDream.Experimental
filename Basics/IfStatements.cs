@@ -1,46 +1,47 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class IfStatements : MonoBehaviour
+namespace ArtisanDream.Experimental.Basics
 {
+	public class IfStatements : MonoBehaviour
+	{
 
-	public int A;
-	public int B;
-	public int C;
+		public int A;
+		public int B;
+		public int C;
 	
-	public string Password;
-	public bool OnSwitch;
-	public Material LampMaterial;
+		public string Password;
+		public bool OnSwitch;
+		public Material LampMaterial;
 	
-	void Update () {
+		void Update () {
 		
-		if (OnSwitch)
-		{
-			LampMaterial.color = Color.white;
-		}
-		else
-		{
-			LampMaterial.color = Color.black;
-		}
+			if (OnSwitch)
+			{
+				LampMaterial.color = UnityEngine.Color.white;
+			}
+			else
+			{
+				LampMaterial.color = UnityEngine.Color.black;
+			}
 		
 
-		if (Password == "OU812")
-		{
-			print("Correct Password.");
-		}
-		else
-		{
-			print("Incorrect Password.");
-		}
+			if (Password == "OU812")
+			{
+				print("Correct Password.");
+			}
+			else
+			{
+				print("Incorrect Password.");
+			}
 
-		if (A + B == C)
-		{
-			print("A plus B is equal to C.");
+			if (A + B == C)
+			{
+				print("A plus B is equal to C.");
+			}
+			else
+			{
+				print("A plus B is not equal to C.");
+			}		
 		}
-		else
-		{
-			print("A plus B is not equal to C.");
-		}		
 	}
 }

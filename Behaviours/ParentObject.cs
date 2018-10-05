@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
-public class ParentObject : MonoBehaviour
+namespace ArtisanDream.Experimental.Behaviours
 {
+    public class ParentObject : MonoBehaviour
+    {
+    }
 }

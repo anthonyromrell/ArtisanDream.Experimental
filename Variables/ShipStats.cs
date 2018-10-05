@@ -1,26 +1,27 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
-public class ShipStats : MonoBehaviour
+namespace ArtisanDream.Experimental.Variables
 {
+	public class ShipStats : MonoBehaviour
+	{
 
-	public int Score = 100;
-	public int Money = 1000;
+		public int Score = 100;
+		public int Money = 1000;
 
-	public float Health = 1.0f;
-	public float FirePower = 20.0f;
+		public float Health = 1.0f;
+		public float FirePower = 20.0f;
 
-	public string ShipName = "Titanic";
-	public string FleetName;
+		public string ShipName = "Titanic";
+		public string FleetName;
 
-	public Vector3 Movement;
+		public Vector3 Movement;
 
-	public Color ShipColor = Color.green;
+		public UnityEngine.Color ShipColor = UnityEngine.Color.green;
 
-	public Animation Anims;
+		public Animation Anims;
 
-	public UnityEvent Event;
+		public UnityEvent Event;
 
+	}
 }

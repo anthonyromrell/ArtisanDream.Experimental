@@ -1,9 +1,12 @@
-﻿using UnityEngine;
-using UnityEngine.Serialization;
+﻿using ArtisanDream.Tools.Objects;
+using UnityEngine;
 
-[CreateAssetMenu(fileName = "FloatBool")]
-public class FloatBool : FloatData 
+namespace ArtisanDream.Experimental.FloatTypes
 {
-	public string InputType;
-	public override float Value => UnityEngine.Input.GetButton(InputType) ? value : 0;
+	[CreateAssetMenu(fileName = "FloatBool")]
+	public class FloatBool : FloatData 
+	{
+		public string InputType;
+		public override float Value => UnityEngine.Input.GetButton(InputType) ? value : 0;
+	}
 }

@@ -1,15 +1,19 @@
-﻿using UnityEngine;
+﻿using ArtisanDream.Tools.Objects;
+using UnityEngine;
 
-[CreateAssetMenu]
-public class FloatAxis : FloatData
+namespace ArtisanDream.Experimental.FloatTypes
 {
-	public string Axis = "Horizontal";
-	
-	public override float Value
+	[CreateAssetMenu]
+	public class FloatAxis : FloatData
 	{
-		get
+		public string Axis = "Horizontal";
+	
+		public override float Value
 		{
-			return value*Input.GetAxis(Axis); 
+			get
+			{
+				return value*Input.GetAxis(Axis); 
+			}
 		}
 	}
 }

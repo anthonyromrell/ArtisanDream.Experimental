@@ -1,16 +1,19 @@
 ﻿using UnityEngine;
 
-public class ChildObject : MonoBehaviour
+namespace ArtisanDream.Experimental.Behaviours
 {
-    public Transform Piece;
-
-    private void Awake()
+    public class ChildObject : MonoBehaviour
     {
-        Piece = GetComponentInParent<ParentObject>().transform;
-    }
+        public Transform Piece;
 
-    private void OnMouseDown()
-    {
-        Piece.position = transform.position;
+        private void Awake()
+        {
+            Piece = GetComponentInParent<ParentObject>().transform;
+        }
+
+        private void OnMouseDown()
+        {
+            Piece.position = transform.position;
+        }
     }
 }

@@ -2,21 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChangeColor : MonoBehaviour
+[CreateAssetMenu]
+public class ChangeColor : ScriptableObject
 {
-	public ColorData SpriteColor;
+	public ColorData ObjectColor;
 	
-	private SpriteRenderer sRenderer;
+	//private SpriteRenderer sRenderer;
 
-	private void Start()
+	public void Invoke(SpriteRenderer sRenderer)
 	{
-		sRenderer = GetComponent<SpriteRenderer>();
-		sRenderer.color = SpriteColor.Value;
+		//sRenderer = GetComponent<SpriteRenderer>();
+		sRenderer.color = ObjectColor.Value;
 	}
-
-	private void OnTriggerEnter(Collider obj)
+	
+	public void Invoke(Material sRenderer)
 	{
-		obj.GetComponent<SpriteRenderer>().color =
-			SpriteColor.Value;
+		//sRenderer = GetComponent<SpriteRenderer>();
+		sRenderer.color = ObjectColor.Value;
 	}
 }

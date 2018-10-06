@@ -2,23 +2,25 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-
-public class MatchID : MonoBehaviour
+namespace ArtisanDream.Experimental.Matching
 {
-    public NameID ID;
-    public UnityEvent OnMatch;
-
-    private void OnTriggerEnter(Collider other)
+    public class MatchID : MonoBehaviour
     {
-        var id = other.GetComponent<ObjectID>().ID;
-        Invoke(id);
-    }
+        public NameID ID;
+        public UnityEvent OnMatch;
 
-    public void Invoke(NameID id)
-    {
-        if (id == ID)
+        private void OnTriggerEnter(Collider other)
         {
-            OnMatch.Invoke();
+            var id = other.GetComponent<ObjectID>().ID;
+            Invoke(id);
+        }
+
+        public void Invoke(NameID id)
+        {
+            if (id == ID)
+            {
+                OnMatch.Invoke();
+            }
         }
     }
 }

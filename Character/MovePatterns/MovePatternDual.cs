@@ -1,29 +1,32 @@
-﻿using UnityEngine;
-using UnityEngine.EventSystems;
+﻿using ArtisanDream.Tools.Objects;
+using UnityEngine;
 
-[CreateAssetMenu(fileName = "MovePatternDual")]
-public class MovePatternDual : MovePattern
+namespace ArtisanDream.Experimental.Character.MovePatterns
 {
-	public IntData Count;
-	private int CanJump;
-	//public bool doubleJump = true;
-	
-	public override void Invoke(CharacterController controller, Transform transform)
+	[CreateAssetMenu(fileName = "MovePatternDual")]
+	public class MovePatternDual : MovePattern
 	{
-		if (controller.isGrounded)
+		public IntData Count;
+		private int CanJump;
+		//public bool doubleJump = true;
+	
+		public override void Invoke(CharacterController controller, Transform transform)
 		{
-			Move(transform);
-			Count.Value = 2;
+			if (controller.isGrounded)
+			{
+				Move(transform);
+				Count.Value = 2;
+			}
+		
+			if (Input.GetButtonDown("Jump") && Count.Value > 0)
+			{
+				moveDirection.y = 4;
+				Count.Value--;
+			}
+		
+			//	moveDirection.y += MoveY.Value;
+		
+			Move(controller);
 		}
-		
-		if (Input.GetButtonDown("Jump") && Count.Value > 0)
-		{
-			moveDirection.y = 4;
-			Count.Value--;
-		}
-		
-	//	moveDirection.y += MoveY.Value;
-		
-		Move(controller);
 	}
 }

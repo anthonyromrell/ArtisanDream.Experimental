@@ -1,11 +1,15 @@
-﻿using UnityEngine;
+﻿using ArtisanDream.Tools.Actions;
+using UnityEngine;
 
-public class SendTransform : MonoBehaviour
+namespace ArtisanDream.Experimental.Behaviours
 {
-    public GameAction Send;
-
-    private void Start()
+    public class SendTransform : MonoBehaviour
     {
-        Send.Call(transform);
+        public GameAction Send;
+
+        private void Start()
+        {
+            Send.Call(transform);
+        }
     }
 }

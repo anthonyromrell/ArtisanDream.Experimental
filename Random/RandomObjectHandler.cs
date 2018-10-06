@@ -1,22 +1,23 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
-[CreateAssetMenu]
-public class RandomObjectHandler : ScriptableObject
+namespace ArtisanDream.Experimental.Random
 {
-
-	public UnityEvent Event;
-
-	public Object NewObject;
-	public Object TypeOf;
-	
-	public RandomObjectSelector ObjectSelector;
-
-	private void OnEnable()
+	[CreateAssetMenu]
+	public class RandomObjectHandler : ScriptableObject
 	{
-		Debug.Log(TypeOf.GetType());
-		NewObject = (GameObject) ObjectSelector.ReturnRandomObject();
+
+		public UnityEvent Event;
+
+		public Object NewObject;
+		public Object TypeOf;
+	
+		public RandomObjectSelector ObjectSelector;
+
+		private void OnEnable()
+		{
+			Debug.Log(TypeOf.GetType());
+			NewObject = (GameObject) ObjectSelector.ReturnRandomObject();
+		}
 	}
 }

@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using ArtisanDream.Experimental.Color;
+using UnityEngine;
 
-public class TriggerInvoke : MonoBehaviour
+namespace ArtisanDream.Experimental.Behaviours
 {
 	public InvokeBase InvokeObject;
 	

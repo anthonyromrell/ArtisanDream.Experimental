@@ -1,32 +1,27 @@
-﻿using UnityEngine;
+﻿using ArtisanDream.Tools.Objects;
+using UnityEngine;
 
-[CreateAssetMenu(fileName = "FloatBoolAndCount")]
-public class FloatBoolAndCount : FloatBool
+namespace ArtisanDream.Experimental.FloatTypes
 {
-	public IntData Count;
-	private int holdCount;
-
-	private void OnEnable()
+	[CreateAssetMenu(fileName = "FloatBoolAndCount")]
+	public class FloatBoolAndCount : FloatBool
 	{
-		Count.Value = 0;
-	}
+		public IntData Count;
 
-	public override float Value
-	{
-		get
+		private void OnEnable()
 		{
-			if (Count.Value > 0)
+			Count.Value = 0;
+		}
+
+		public override float Value
+		{
+			get
 			{
-				if (Input.GetButtonDown(InputType))
-				{
-					Count.Value--;
-					return value;
-				}
-				return 0;
+				if (Count.Value <= 0) return 0;
+				if (!UnityEngine.Input.GetButtonDown(InputType)) return 0;
+				Count.Value--;
+				return value;
 			}
-			return 0;
 		}
 	}
 }
-
-

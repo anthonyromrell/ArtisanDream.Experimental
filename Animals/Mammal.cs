@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Mammal : Animal
+﻿namespace ArtisanDream.Experimental.Animals
 {
-	public Color FurColor = Color.green;
+	public class Mammal : Animal
+	{
+		public UnityEngine.Color FurColor = UnityEngine.Color.green;
+	}
 }

@@ -1,11 +1,15 @@
-﻿using UnityEngine;
+﻿using ArtisanDream.Tools.Actions;
+using UnityEngine;
 
-public class ClickRunActionBehaviour : MonoBehaviour
+namespace ArtisanDream.Experimental.Behaviours
 {
-    public GameAction GameAction;
-
-    private void OnMouseDown()
+    public class ClickRunActionBehaviour : MonoBehaviour
     {
-        GameAction.Call(transform);
+        public GameAction GameAction;
+
+        private void OnMouseDown()
+        {
+            GameAction.Call(transform);
+        }
     }
 }

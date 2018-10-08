@@ -23,4 +23,9 @@ namespace ArtisanDream.Experimental.Matching
             }
         }
     }
+
+    public class ObjectID: MonoBehaviour
+    {
+        public NameID ID;
+    }
 }

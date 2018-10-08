@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ArtisanDream.Experimental.Character.MovePatterns
+namespace ArtisanDream.Experimental
 {
 	[CreateAssetMenu(fileName = "MovePatternNotGrounded")]
 	public class MovePatternNotGrounded : MovePattern 

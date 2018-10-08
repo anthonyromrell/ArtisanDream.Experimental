@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ArtisanDream.Experimental.GameStates
+namespace ArtisanDream.Experimental
 {
     [CreateAssetMenu(fileName = "StartGame")]
     public class StartGame : GameStateBase

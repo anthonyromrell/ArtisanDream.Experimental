@@ -1,8 +1,7 @@
-﻿using ArtisanDream.Experimental.Character.MovePatterns;
-using UnityEngine;
+﻿using UnityEngine;
 
 //Made By Anthony Romrell
-namespace ArtisanDream.Experimental.Character.Behaviours
+namespace ArtisanDream.Experimental
 {
 	[RequireComponent(typeof(CharacterController))]
 

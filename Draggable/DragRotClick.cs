@@ -1,4 +1,5 @@
-﻿namespace ArtisanDream.Experimental.Draggable
+﻿
+namespace ArtisanDream.Experimental
 {
 	public class DragRotClick : DragRotationBase
 	{

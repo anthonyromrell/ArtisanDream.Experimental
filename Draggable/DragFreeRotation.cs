@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ArtisanDream.Experimental.Draggable
+namespace ArtisanDream.Experimental
 {
 	public class DragFreeRotation : DragRotationBase
 	{

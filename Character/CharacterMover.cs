@@ -1,7 +1,6 @@
-﻿using ArtisanDream.Tools.Objects;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace ArtisanDream.Experimental.Character
+namespace ArtisanDream.Experimental
 {
     [RequireComponent(typeof(CharacterController))]
     public class CharacterMover : MonoBehaviour

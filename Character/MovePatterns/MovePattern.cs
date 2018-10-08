@@ -1,8 +1,7 @@
-﻿using ArtisanDream.Tools.Objects;
-using UnityEngine;
+﻿using UnityEngine;
 
 //Made By Anthony Romrell
-namespace ArtisanDream.Experimental.Character.MovePatterns
+namespace ArtisanDream.Experimental
 {
 	[CreateAssetMenu]
 	public class MovePattern : ScriptableObject 

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ArtisanDream.Experimental.GameStates
+namespace ArtisanDream.Experimental
 {
     public abstract class GameStateBase : ScriptableObject, IGameState
     {

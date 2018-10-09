@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ArtisanDream.Experimental.Snapping
+namespace ArtisanDream.Experimental
 {
 	public class SnapOn : MonoBehaviour
 	{
@@ -12,8 +12,9 @@ namespace ArtisanDream.Experimental.Snapping
 			position = other.transform.position;
 		}
 
-		public void Invoke()
+		public void Call()
 		{
+			print(position);
 			transform.position = position;
 		}
 	}

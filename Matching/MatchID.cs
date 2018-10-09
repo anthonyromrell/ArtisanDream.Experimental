@@ -2,8 +2,6 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace ArtisanDream.Experimental.Matching
-{
     public class MatchID : MonoBehaviour
     {
         public NameID ID;
@@ -23,9 +21,3 @@ namespace ArtisanDream.Experimental.Matching
             }
         }
     }
-
-    public class ObjectID: MonoBehaviour
-    {
-        public NameID ID;
-    }
-}

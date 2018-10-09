@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 
-namespace ArtisanDream.Experimental.instancing
+namespace ArtisanDream.Experimental
 {
 	[CreateAssetMenu]
-//Made By Anthony Romrell
+	//Made By Anthony Romrell
 	public class InstanceObject : ScriptableObject
 	{
-		public void Invoke(GameObject instance)
+		public void Call(GameObject instance)
 		{
 			Instantiate(instance);
 		}

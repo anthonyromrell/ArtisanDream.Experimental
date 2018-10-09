@@ -11,4 +11,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e96ec0ac63d44a60802d4164a3c201d, type: 3}
   m_Name: RedChange
   m_EditorClassIdentifier: 
-  Color: {fileID: 11400000, guid: 19eed68b4675f4d14a72aa05fb0e06ae, type: 2}
+  Color: {fileID: 11400000, guid: 6fa734888f68e47c9ab3d73b27311609, type: 2}

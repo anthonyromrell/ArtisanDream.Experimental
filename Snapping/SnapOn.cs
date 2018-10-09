@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace ArtisanDream.Experimental
 {
@@ -15,7 +16,17 @@ namespace ArtisanDream.Experimental
 		public void Call()
 		{
 			print(position);
-			transform.position = position;
+			//transform.position = position;
+			StartCoroutine(MoveTo());
+		}
+
+		IEnumerator MoveTo()
+		{
+			while (true)
+			{
+				yield return new WaitForFixedUpdate();
+				transform.position = Vector3.Lerp(transform.position, position, 0.1f);
+			}
 		}
 	}
 }

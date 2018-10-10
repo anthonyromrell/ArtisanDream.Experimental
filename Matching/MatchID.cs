@@ -10,10 +10,10 @@ using UnityEngine.Events;
         private void OnTriggerEnter(Collider other)
         {
             var id = other.GetComponent<ObjectID>().ID;
-            Invoke(id);
+            Call(id);
         }
 
-        public void Invoke(NameID id)
+        public void Call(NameID id)
         {
             if (id == ID)
             {

@@ -6,8 +6,13 @@
 	{
 		public ColorData Color;
 	
-		public void Invoke (SpriteRenderer spriteRenderer)
+		public void Call (SpriteRenderer spriteRenderer)
 		{
 			spriteRenderer.color = Color.Value;
+		}
+		
+		public void Call (Material material)
+		{
+			material.color = Color.Value;
 		}
 	}

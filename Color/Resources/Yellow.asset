@@ -11,4 +11,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97ce78083360c468aa3dbf7c1da3dd80, type: 3}
   m_Name: Yellow
   m_EditorClassIdentifier: 
-  Value: {r: 1, g: 0.879798, b: 0.031372547, a: 1}
+  Value: {r: 1, g: 0.85229844, b: 0.031372547, a: 1}

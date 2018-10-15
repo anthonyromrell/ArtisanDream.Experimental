@@ -3,12 +3,12 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8d8326a205bc4c36bdbd5a1bff822e2, type: 3}
-  m_Name: StoreDataStorage
+  m_Script: {fileID: 11500000, guid: 648de5e2453944e2ba64e4cc2c086f1c, type: 3}
+  m_Name: AvaliableLetters
   m_EditorClassIdentifier: 
-  Data: {fileID: 11400000, guid: d3467714ac5084192bfe5d3b47eb3b75, type: 2}
+  ObjectList: []

@@ -7,20 +7,20 @@ namespace ArtisanDream.Experimental.Counter
 {
 	public class RunCountDown : MonoBehaviour
 	{
-		public float seconds = 1.0f;
-		public int number = 3;
+		public float Seconds = 1.0f;
+		public int Number = 3;
 		private Text label;
 	
 		IEnumerator Start ()
 		{
 			label = GetComponent<Text>();
 
-			while (number > 0)
+			while (Number > 0)
 			{
 		    
-				yield return new WaitForSeconds(seconds);
-				label.text = number.ToString();
-				number--;
+				yield return new WaitForSeconds(Seconds);
+				label.text = Number.ToString();
+				Number--;
 			}
 			//label.text = "";
 			yield return new WaitForSeconds(1);

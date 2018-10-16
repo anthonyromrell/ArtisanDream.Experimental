@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class SimpleAI : MonoBehaviour
+public class SimpleAi : MonoBehaviour
 {
-	public Transform destination;
+	public Transform Destination;
 	private NavMeshAgent agent;
 	// Use this for initialization
 	void Start ()
@@ -16,6 +16,6 @@ public class SimpleAI : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		agent.destination = destination.position;
+		agent.destination = Destination.position;
 	}
 }

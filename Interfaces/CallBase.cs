@@ -30,7 +30,7 @@ public class CallBase<T> : MonoBehaviour, ICallTransform
 		throw new System.NotImplementedException();
 	}
 
-	public void DoWork<T1, U>()
+	public void DoWork<T1, TU>()
 	{
 		throw new System.NotImplementedException();
 	}

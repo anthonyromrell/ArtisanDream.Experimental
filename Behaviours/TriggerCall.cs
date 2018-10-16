@@ -10,6 +10,6 @@ public class TriggerCall: MonoBehaviour
     }
 }
 
-internal class type<T>
+internal class Type<T>
 {
 }

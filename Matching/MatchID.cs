@@ -2,20 +2,20 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-    public class MatchID : MonoBehaviour
+    public class MatchId : MonoBehaviour
     {
-        public NameID ID;
+        public NameId Id;
         public UnityEvent OnMatch;
 
         private void OnTriggerEnter(Collider other)
         {
-            var id = other.GetComponent<ObjectID>().ID;
+            var id = other.GetComponent<ObjectId>().Id;
             Call(id);
         }
 
-        public void Call(NameID id)
+        public void Call(NameId id)
         {
-            if (id == ID)
+            if (id == Id)
             {
                 OnMatch.Invoke();
             }

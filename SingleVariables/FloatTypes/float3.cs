@@ -2,17 +2,17 @@
 
 namespace ArtisanDream.Experimental.FloatTypes
 {
-	public class float3
+	public class Float3
 	{
-		public float x, y, z;
+		public float X, Y, Z;
 
-		public float3(float x, float y, float z)
+		public Float3(float x, float y, float z)
 		{
-			this.x = x;
-			this.y = y;
-			this.z = z;
+			this.X = x;
+			this.Y = y;
+			this.Z = z;
 		}
 
-		public Vector3 v3;
+		public Vector3 V3;
 	}
 }

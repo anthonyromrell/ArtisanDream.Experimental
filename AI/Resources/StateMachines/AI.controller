@@ -13,19 +13,19 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Patrol
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Idle
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -52,6 +52,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StateMachine: {fileID: 0}
   AiBase: {fileID: 11400000, guid: fa7bad835181744e7864f027e12cb57e, type: 2}
+--- !u!114 &114063204729450900
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd3a150b7b937427b93c9d5179a97fa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Agent: {fileID: 0}
+  CurrentAiBrain: {fileID: 11400000, guid: da63cf8b9aeed47a481097ecf39a9c6c, type: 2}
 --- !u!114 &114238951413509072
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -282,7 +295,7 @@ AnimatorStateMachine:
     m_Position: {x: 288, y: 156, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102846922203733282}
-    m_Position: {x: 564, y: 12, z: 0}
+    m_Position: {x: 456, y: -48, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102515128978413210}
     m_Position: {x: 540, y: 108, z: 0}
@@ -293,7 +306,8 @@ AnimatorStateMachine:
   - {fileID: 1101437949887331424}
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: 114063204729450900}
   m_AnyStatePosition: {x: 50, y: 20, z: 0}
   m_EntryPosition: {x: 72, y: 240, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}

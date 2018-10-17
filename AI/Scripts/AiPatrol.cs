@@ -15,7 +15,7 @@ public class AiPatrol : AiBase
 	public GameAction AddPointList;
 	public float distance = 0;
 	
-	public List<Transform> PatrolPoints { get ; set; }
+	public List<PatrolPoint> PatrolPoints { get ; set; }
 
 	private void OnEnable()
 	{
@@ -27,35 +27,17 @@ public class AiPatrol : AiBase
 
 	private void AddPatrolPoints(object obj)
 	{
-		PatrolPoints.Add(obj as Transform);
+		PatrolPoints.Add(obj as PatrolPoint);
 	}
 	
 	private void AddPatrolPointList (object obj)
 	{
-		PatrolPoints = obj as List<Transform>;
+		PatrolPoints = obj as List<PatrolPoint>;
 	}
 	
 	public override void Navigate(NavMeshAgent ai)
 	{
-		ai.speed = Speed.Value;
-		ai.angularSpeed = AngularSpeed.Value;
-		if (ai.remainingDistance <= distance)
-		{
-			Debug.Log(ai.remainingDistance);
-			Debug.Log(i);
-			if (i < PatrolPoints.Count - 1)
-			{
-				i++;
-			} else
-			{
-				EndPatrol.Invoke();
-			}
-		}
-		ai.destination = PatrolPoints[i].position;
-	}
-
-	public void RestartPatrol()
-	{
-		i = 0;
+		ai.destination = PatrolPoints[0].Value;
+		if ((ai.remainingDistance > 0)) return;
 	}
 }

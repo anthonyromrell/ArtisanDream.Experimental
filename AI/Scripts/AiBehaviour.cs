@@ -6,27 +6,38 @@ using UnityEngine.AI;
 //Made By Anthony Romrell
 public class AiBehaviour : MonoBehaviour
 {
-	private Animator anims;
+	private NavMeshAgent agent;
+	//private Animator anims;
 	public AiBrain Brain;
+	public AiBase OnStart, OnEnter, OnExit;
 	
 	void Awake ()
 	{
-		anims = GetComponent<Animator>();
-		anims.GetBehaviour<AiStateMachine>().Agent = GetComponent<NavMeshAgent>();
+		agent = GetComponent<NavMeshAgent>();
+	//	anims = GetComponent<Animator>();
+	//	anims.GetBehaviour<AiStateMachine>().Agent = GetComponent<NavMeshAgent>();
 	}
 
 	private void Start()
 	{
-		anims.SetTrigger(Brain.StartingState.ToString());
+		Brain.Base = OnStart;
+		//	anims.SetTrigger(Brain.StartingState.ToString());
 	}
 
 	private void OnTriggerEnter(Collider other)
 	{
-		anims.SetTrigger(Brain.TriggerEnterState.ToString());
+		Brain.Base = OnEnter;
+	//	anims.SetTrigger(Brain.TriggerEnterState.ToString());
 	}
 	
 	private void OnTriggerExit(Collider other)
 	{
-		anims.SetTrigger(Brain.TriggerExitState.ToString());
+		Brain.Base = OnExit;
+	//	anims.SetTrigger(Brain.TriggerExitState.ToString());
+	}
+
+	private void Update()
+	{
+		Brain.Base.Navigate(agent);
 	}
 }

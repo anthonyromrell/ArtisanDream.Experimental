@@ -9,7 +9,6 @@ namespace ArtisanDream.Experimental.Objects
 
         public Vector3 Value
         {
-            get => value;
             set => this.value = value;
         }
     }

@@ -5,7 +5,7 @@ public interface ICall<T>
 	void Call();
 	void DoWork();
 	void DoWork<T>();
-	void DoWork<T, U>();
+	void DoWork<T, TU>();
 }
 
 interface ICallTransform : ICall<Transform>

@@ -1,7 +1,7 @@
 ﻿using ArtisanDream.Experimental;
 using UnityEngine;
 
-public class ObjectID : MonoBehaviour
+public class ObjectId : MonoBehaviour
 {
-	public NameID ID;
+	public NameId Id;
 }

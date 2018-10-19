@@ -13,15 +13,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: {fileID: 11400000, guid: aba56aa4c5baf47f08db433b7e038d0a, type: 2}
   AngularSpeed: {fileID: 11400000, guid: c704c0d4986c64145814569438fe257b, type: 2}
+  NextPatrol:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 4ef9ca341585f4e249406203e9fffdb1, type: 2}
+        m_MethodName: ActionCall
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   EndPatrol:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000}
-        m_MethodName: Navigate
-        m_Mode: 2
+      - m_Target: {fileID: 11400000, guid: 4ef9ca341585f4e249406203e9fffdb1, type: 2}
+        m_MethodName: ActionCall
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AI.NavMeshAgent, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -32,3 +48,4 @@ MonoBehaviour:
   AddPointsToList: {fileID: 11400000, guid: 5469c199940c34043b5d7e4e873ae6bb, type: 2}
   AddPointList: {fileID: 11400000, guid: 5469c199940c34043b5d7e4e873ae6bb, type: 2}
   distance: 0
+  HoldTime: 2

@@ -145,9 +145,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Brain: {fileID: 11400000, guid: da63cf8b9aeed47a481097ecf39a9c6c, type: 2}
-  OnStart: {fileID: 11400000, guid: 15e7e115cb6534b37a734729608bdfc3, type: 2}
+  OnStart: {fileID: 11400000, guid: fa7bad835181744e7864f027e12cb57e, type: 2}
   OnEnter: {fileID: 11400000, guid: 44fd2d90a0ec44a94ab0fb0061e115a6, type: 2}
   OnExit: {fileID: 11400000, guid: fa7bad835181744e7864f027e12cb57e, type: 2}
+  Event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  TransferCoroutine: {fileID: 11400000, guid: 4ef9ca341585f4e249406203e9fffdb1, type: 2}
 --- !u!195 &334987977
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -403,7 +409,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 570248198}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.08, z: -8.64}
+  m_LocalPosition: {x: -6.52, y: 1.08, z: 0.78}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -822,6 +828,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PatrolPoints:
   - {fileID: 11400000, guid: ab9bdd8f841b446e399fdebbe4ce85e9, type: 2}
+  - {fileID: 11400000, guid: 06cbc0e91b6e8437ba80616e3415982f, type: 2}
+  - {fileID: 11400000, guid: f8ce6c6d163794779a35df7269959462, type: 2}
+  - {fileID: 11400000, guid: 998aaeb4cece440518ddf7e976e39003, type: 2}
   UpdateInfo:
     m_PersistentCalls:
       m_Calls:
@@ -830,6 +839,39 @@ MonoBehaviour:
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 838973270}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 06cbc0e91b6e8437ba80616e3415982f, type: 2}
+        m_MethodName: UpdateData
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1900757106}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: f8ce6c6d163794779a35df7269959462, type: 2}
+        m_MethodName: UpdateData
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1213721153}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 998aaeb4cece440518ddf7e976e39003, type: 2}
+        m_MethodName: UpdateData
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 344076888}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0

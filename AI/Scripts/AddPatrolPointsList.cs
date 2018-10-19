@@ -16,7 +16,7 @@ public class AddPatrolPointsList : MonoBehaviour
 	private void Start()
 	{
 		UpdateInfo.Invoke();
-		SendAction.Call(PatrolPoints);
+		SendAction.Raise(PatrolPoints);
 	}
 
 }

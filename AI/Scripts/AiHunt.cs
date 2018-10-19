@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
@@ -13,7 +14,7 @@ public class AiHunt : AiBase
 
 	private void OnEnable()
 	{
-		GameAction.Call += Call;
+		GameAction.Raise += Call;
 	}
 
 	private void Call(object obj)
@@ -21,10 +22,15 @@ public class AiHunt : AiBase
 		destination = obj as Transform;
 	}
 
-	public override void Navigate(NavMeshAgent ai)
+	public override IEnumerator Nav(NavMeshAgent ai)
 	{
-		ai.speed = Speed.Value;
-		ai.angularSpeed = AngularSpeed.Value;
-		ai.destination = (destination != null ? destination.position : ai.transform.position);
+		var canRun = true;
+		while (canRun)
+		{
+			yield return new WaitForFixedUpdate();
+			ai.speed = Speed.Value;
+			ai.angularSpeed = AngularSpeed.Value;
+			ai.destination = (destination != null ? destination.position : ai.transform.position);
+		}
 	}
 }

@@ -1,43 +1,52 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 //Made By Anthony Romrell
 public class AiBehaviour : MonoBehaviour
 {
 	private NavMeshAgent agent;
-	//private Animator anims;
 	public AiBrain Brain;
 	public AiBase OnStart, OnEnter, OnExit;
+	private Coroutine coroutine;
+	public UnityEvent Event;
+	public GameAction TransferCoroutine;
 	
 	void Awake ()
 	{
 		agent = GetComponent<NavMeshAgent>();
-	//	anims = GetComponent<Animator>();
-	//	anims.GetBehaviour<AiStateMachine>().Agent = GetComponent<NavMeshAgent>();
 	}
 
 	private void Start()
 	{
+		TransferCoroutine.RaiseNoArgs = CallNoArgs;
 		Brain.Base = OnStart;
-		//	anims.SetTrigger(Brain.StartingState.ToString());
+		coroutine = StartCoroutine(Brain.Base.Nav(agent));
+	}
+
+	private void CallNoArgs()
+	{
+		OnCall(coroutine);
 	}
 
 	private void OnTriggerEnter(Collider other)
 	{
 		Brain.Base = OnEnter;
-	//	anims.SetTrigger(Brain.TriggerEnterState.ToString());
+		OnCall(coroutine);
 	}
 	
 	private void OnTriggerExit(Collider other)
 	{
 		Brain.Base = OnExit;
-	//	anims.SetTrigger(Brain.TriggerExitState.ToString());
+		OnCall(coroutine);
 	}
 
-	private void Update()
+	
+	
+	private void OnCall(Coroutine c)
 	{
-		Brain.Base.Navigate(agent);
+		StopCoroutine(c);
+		coroutine = StartCoroutine(Brain.Base.Nav(agent));
 	}
+
 }

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Name: A
   m_EditorClassIdentifier: 
   Item: {fileID: 11400000, guid: c10715584c5794b29ac40e0badf7c0fa, type: 2}
-  Value: 10
+  Value: 100

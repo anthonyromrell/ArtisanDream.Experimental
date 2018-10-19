@@ -5,8 +5,9 @@ namespace ArtisanDream.Experimental
 {
 	public class SnapOn : MonoBehaviour
 	{
-		private Vector3 position;
 		public FloatData Speed;
+		public FloatData HoldTime;
+		private Vector3 position;
 		
 		private void OnTriggerEnter(Collider other)
 		{
@@ -16,11 +17,18 @@ namespace ArtisanDream.Experimental
 		public void Call()
 		{
 			StartCoroutine(MoveTo());
+			StartCoroutine(Stop());
 		}
 
-		IEnumerator MoveTo()
+		private IEnumerator Stop()
 		{
-			while (true)
+			yield return new WaitForSeconds(HoldTime.Value);
+			StopAllCoroutines();
+		}
+
+		private IEnumerator MoveTo()
+		{
+			while (transform.position.x != position.x)
 			{
 				yield return new WaitForFixedUpdate();
 				transform.position = Vector3.Lerp(transform.position, position, Speed.Value);

@@ -4,17 +4,18 @@ using UnityEngine.Events;
 public class MatchID : MonoBehaviour
 {
     public NameID Id;
+    private NameID id;
     public UnityEvent OnMatch;
 
     private void OnTriggerEnter(Collider other)
     {
-        var id = other.GetComponent<ObjectId>().Id;
+        id = other.GetComponent<ObjectID>().ID;
         Call(id);
     }
 
-    public void Call(NameID id)
+    public void Call(NameID match)
     {
-        if (id == Id)
+        if (match == Id)
         {
             OnMatch.Invoke();
         }

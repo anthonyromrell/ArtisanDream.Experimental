@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 
-    [CreateAssetMenu]
-    public class NameId : ScriptableObject {
-
-    }
+[CreateAssetMenu]
+public class NameID : ScriptableObject
+{
+}

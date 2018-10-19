@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-public class MatchId : MonoBehaviour
+public class MatchID : MonoBehaviour
 {
-    public NameId Id;
+    public NameID Id;
     public UnityEvent OnMatch;
 
     private void OnTriggerEnter(Collider other)
@@ -12,7 +12,7 @@ public class MatchId : MonoBehaviour
         Call(id);
     }
 
-    public void Call(NameId id)
+    public void Call(NameID id)
     {
         if (id == Id)
         {

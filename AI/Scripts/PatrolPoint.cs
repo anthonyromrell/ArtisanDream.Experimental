@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu(menuName = "Ai/Point")]
 public class PatrolPoint : ScriptableObject
 {
 	public Vector3 Value;

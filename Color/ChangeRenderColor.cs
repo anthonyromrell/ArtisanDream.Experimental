@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
 
-	[CreateAssetMenu]
-	public class ChangeSpriteColor : ScriptableObject
+	[CreateAssetMenu(menuName = "Change/Render Color")]
+	public class ChangeRenderColor : ScriptableObject
 	{
 		public ColorData Color;
 	

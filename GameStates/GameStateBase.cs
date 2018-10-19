@@ -1,19 +1,16 @@
 ﻿using UnityEngine;
 
-namespace ArtisanDream.Experimental
+
+public abstract class GameStateBase : ScriptableObject, IGameState
 {
-    public abstract class GameStateBase : ScriptableObject, IGameState
-    {
-        //public GameAction GameStateAction;
-        public GameBrain Brain;
+    public GameBrain Brain;
 
-        public abstract void StartState();
-        public abstract void RunState();
-    }
+    public abstract void StartState();
+    public abstract void RunState();
+}
 
-    public interface IGameState
-    {
-        void StartState();
-        void RunState();
-    }
+public interface IGameState
+{
+    void StartState();
+    void RunState();
 }

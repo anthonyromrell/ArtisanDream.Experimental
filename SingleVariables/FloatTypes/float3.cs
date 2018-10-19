@@ -1,18 +1,16 @@
 ﻿using UnityEngine;
 
-namespace ArtisanDream.Experimental.FloatTypes
+[CreateAssetMenu(menuName = "Floats/Float3")]
+public class Float3: ScriptableObject
 {
-	public class Float3
-	{
-		public float X, Y, Z;
+    public float X, Y, Z;
 
-		public Float3(float x, float y, float z)
-		{
-			this.X = x;
-			this.Y = y;
-			this.Z = z;
-		}
+    public Float3(float x, float y, float z)
+    {
+        this.X = x;
+        this.Y = y;
+        this.Z = z;
+    }
 
-		public Vector3 V3;
-	}
+    public Vector3 V3;
 }

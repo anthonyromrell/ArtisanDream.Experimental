@@ -1,18 +1,14 @@
-﻿using ArtisanDream.Tools.Objects;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace ArtisanDream.Experimental.Random
+[CreateAssetMenu(menuName = "Random/Number")]
+public class RandomValue : ScriptableObject
 {
-	[CreateAssetMenu]
-	public class RandomValue : ScriptableObject
-	{
-		public FloatData RandomNumber;
+    public FloatData RandomNumber;
 
-		[Range(0,10)] public float ValueRange;
-	
-		public void Randomize()
-		{
-			RandomNumber.Value =  Mathf.RoundToInt(UnityEngine.Random.Range(0, ValueRange));
-		}
-	}
+    [Range(0, 10)] public float ValueRange;
+
+    public void Randomize()
+    {
+        RandomNumber.Value = Mathf.RoundToInt(UnityEngine.Random.Range(0, ValueRange));
+    }
 }

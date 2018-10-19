@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ArtisanDream.Experimental
-{
-	[CreateAssetMenu]
+	[CreateAssetMenu(menuName = "Instancing/Instance Object")]
 	//Made By Anthony Romrell
 	public class InstanceObject : ScriptableObject
 	{
@@ -11,4 +9,3 @@ namespace ArtisanDream.Experimental
 			Instantiate(instance);
 		}
 	}
-}

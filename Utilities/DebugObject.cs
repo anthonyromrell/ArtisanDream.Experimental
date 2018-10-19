@@ -1,15 +1,10 @@
 ﻿using UnityEngine;
 
-namespace ArtisanDream.Tools.Functions
+[CreateAssetMenu(fileName = "DebugObject", menuName = "Objects/Debug Object")]
+public class DebugObject : ScriptableObject
 {
-	[CreateAssetMenu(fileName = "DebugObject")]
-	public class DebugObject : ScriptableObject 
-	{
-
-		public void Raise(string s)
-		{
-			Debug.Log(s);
-		}
-	
-	}
+    public void Call(string s)
+    {
+        Debug.Log(s);
+    }
 }

@@ -1,10 +1,7 @@
 ﻿using UnityEngine;
 
-namespace ArtisanDream.Experimental
+[CreateAssetMenu(menuName = "Game Control/Game Brain")]
+public class GameBrain : ScriptableObject
 {
-    [CreateAssetMenu(fileName = "GameBrain")]
-    public class GameBrain : ScriptableObject
-    {
-        public GameStateBase CurrentState;
-    }
+    public GameStateBase CurrentState;
 }

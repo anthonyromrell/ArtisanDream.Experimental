@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-	[CreateAssetMenu]
+	[CreateAssetMenu(menuName = "Random/Color")]
 	public class RandomColor : ScriptableObject
 	{
  

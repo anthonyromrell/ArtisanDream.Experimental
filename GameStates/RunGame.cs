@@ -1,18 +1,15 @@
 ﻿using UnityEngine;
 
-namespace ArtisanDream.Experimental
+[CreateAssetMenu(menuName = "Game Control/RunGame")]
+public class RunGame : GameStateBase
 {
-    [CreateAssetMenu(fileName = "RunGame")]
-    public class RunGame : GameStateBase
+    public override void StartState()
     {
-        public override void StartState()
-        {
-            Debug.Log("Start Playing Game");
-        }
+        Debug.Log("Start Playing Game");
+    }
 
-        public override void RunState()
-        {
-            Debug.Log("Playing Game");
-        }
+    public override void RunState()
+    {
+        Debug.Log("Playing Game");
     }
 }

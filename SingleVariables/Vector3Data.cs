@@ -1,15 +1,7 @@
 ﻿using UnityEngine;
 
-namespace ArtisanDream.Experimental.Objects
+[CreateAssetMenu(menuName = "Vector3/Data")]
+public class Vector3Data : ScriptableObject
 {
-    [CreateAssetMenu(fileName = "TransformVariable")]
-    public class Vector3Data : ScriptableObject
-    {
-        public Vector3 value;
-
-        public Vector3 Value
-        {
-            set => this.value = value;
-        }
-    }
+    public Vector3 Value;
 }

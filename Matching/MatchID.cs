@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.Events;
 
 public class MatchID : MonoBehaviour
@@ -6,6 +7,8 @@ public class MatchID : MonoBehaviour
     public NameID Id;
     private NameID id;
     public UnityEvent OnMatch;
+    public UnityEvent OnRestart;
+    public FloatData HoldTime;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -18,6 +21,13 @@ public class MatchID : MonoBehaviour
         if (match == Id)
         {
             OnMatch.Invoke();
+            StartCoroutine(Restart());
         }
+    }
+
+    public IEnumerator Restart()
+    {
+        yield return new WaitForSeconds(HoldTime.Value);
+        OnRestart.Invoke();
     }
 }

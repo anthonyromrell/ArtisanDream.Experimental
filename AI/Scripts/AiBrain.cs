@@ -4,4 +4,9 @@
 public class AiBrain : ScriptableObject
 {
 	public AiBase Base;
+
+	public void ChangeBase(AiBase b)
+	{
+		Base = b;
+	}
 }

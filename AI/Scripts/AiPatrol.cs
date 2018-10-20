@@ -46,7 +46,6 @@ public class AiPatrol : AiBase
 
     public override IEnumerator Nav(NavMeshAgent ai)
     {
-        Debug.Log(PatrolPoints.Count);
         yield return new WaitForSeconds(HoldTime);
         ai.SetDestination(PatrolPoints[i].Value);
         var canRun = true;

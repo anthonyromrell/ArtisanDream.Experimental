@@ -4,8 +4,7 @@ using UnityEngine.AI;
 
 public abstract class AiBase : ScriptableObject
 {
-	public FloatBase Speed;
-	public FloatBase AngularSpeed;
-//	public abstract void Navigate(NavMeshAgent ai);
+	public FloatData Speed;
+	public FloatData AngularSpeed;
 	public abstract IEnumerator Nav(NavMeshAgent ai);
 }

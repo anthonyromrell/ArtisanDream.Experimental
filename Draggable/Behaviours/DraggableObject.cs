@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 //Made By Anthony Romrell
 namespace ArtisanDream.Tools.Draggable.Behaviours
@@ -11,6 +12,8 @@ namespace ArtisanDream.Tools.Draggable.Behaviours
         private Camera cam;
 
         public bool CanDrag;
+        public UnityEvent OnDrag;
+        public UnityEvent OnUp;
 
         private void Start()
         {
@@ -19,6 +22,7 @@ namespace ArtisanDream.Tools.Draggable.Behaviours
 
         public IEnumerator OnMouseDown()
         {
+            OnDrag.Invoke();
             offsetPosition = transform.position - cam.ScreenToWorldPoint(Input.mousePosition);
             yield return new WaitForFixedUpdate();
             CanDrag = true;
@@ -33,6 +37,7 @@ namespace ArtisanDream.Tools.Draggable.Behaviours
         private void OnMouseUp()
         {
             CanDrag = false;
+            OnUp.Invoke();
         }
     }
 }

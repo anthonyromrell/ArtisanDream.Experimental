@@ -13,7 +13,8 @@ public class AiPatrol : AiBase
 
     private int i = 0;
 
-    private Coroutine coroutine;
+    [HideInInspector]
+    public GameAction SendCoroutine;
     public GameAction AddPointsToList;
     public GameAction AddPointList;
     public FloatData distance;
@@ -27,11 +28,7 @@ public class AiPatrol : AiBase
         if (AddPointsToList != null) AddPointsToList.Raise += AddPatrolPoints;
         if (AddPointList != null) AddPointList.Raise += AddPatrolPointList;
         i = 0;
-    }
-
-    private void Transfer(Coroutine c)
-    {
-        coroutine = c;
+        NextPatrol.AddListener(RestartPatrol);
     }
 
     private void AddPatrolPoints(object obj)
@@ -42,8 +39,15 @@ public class AiPatrol : AiBase
     private void AddPatrolPointList(object obj)
     {
         PatrolPoints = obj as List<Vector3Data>;
+       
     }
 
+    public void RestartPatrol()
+    {
+        Debug.Log(SendCoroutine + name);
+        SendCoroutine.RaiseNoArgs();
+    }
+    
     public override IEnumerator Nav(NavMeshAgent ai)
     {
         yield return new WaitForSeconds(HoldTime.Value);

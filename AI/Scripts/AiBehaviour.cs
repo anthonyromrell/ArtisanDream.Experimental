@@ -5,25 +5,29 @@ using UnityEngine.Events;
 //Made By Anthony Romrell
 public class AiBehaviour : MonoBehaviour
 {
-    private NavMeshAgent agent;
-    public AiBrain Brain;
+    
     public AiBase OnStart, OnEnter, OnExit;
+    
+    [HideInInspector]
+    public AiBrain Brain;
+    
+    [HideInInspector]
+    public AiPatrol Patrol;
     private Coroutine coroutine;
-    public GameAction TransferCoroutine;
-
-    void Awake()
-    {
-        agent = GetComponent<NavMeshAgent>();
-    }
+    private NavMeshAgent agent;
 
     private void Start()
-    {
-        TransferCoroutine.RaiseNoArgs = StartCoroutine;
+    {  
+        Brain = ScriptableObject.CreateInstance<AiBrain>();
+        Patrol = OnStart as AiPatrol;
+        Patrol.SendCoroutine = ScriptableObject.CreateInstance<GameAction>();
+        Patrol.SendCoroutine.RaiseNoArgs += CallCoroutine;
+        agent = GetComponent<NavMeshAgent>();
         Brain.Base = OnStart;
         coroutine = StartCoroutine(Brain.Base.Nav(agent));
     }
 
-    private void StartCoroutine()
+    private void CallCoroutine()
     {
         OnCall(coroutine);
     }

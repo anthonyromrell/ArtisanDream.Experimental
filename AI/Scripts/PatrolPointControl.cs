@@ -8,6 +8,6 @@ public class PatrolPointControl : MonoBehaviour
 
 	void OnEnable ()
 	{
-		AiPatrol.PatrolPoints = new List<PatrolPoint>(GetComponentsInChildren<PatrolPoint>());
+		AiPatrol.PatrolPoints = new List<Vector3Data>(GetComponentsInChildren<Vector3Data>());
 	}
 }

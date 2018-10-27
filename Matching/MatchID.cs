@@ -5,29 +5,53 @@ using UnityEngine.Events;
 public class MatchID : MonoBehaviour
 {
     public NameID Id;
-    private NameID id;
+    public NameID MatchMadeID;
+    public bool UseChangeOnMatch;
+    //private NameID id;
     public UnityEvent OnMatch;
-    public UnityEvent OnRestart;
-    public FloatData HoldTime;
-
+    public UnityEvent NoMatch;
+   // public UnityEvent OnRestart;
+   // public FloatData HoldTime;
+    //public BoolData Matched;
+    private bool internalMatch;
+    
     private void OnTriggerEnter(Collider other)
     {
-        id = other.GetComponent<ObjectID>().ID;
-        Call(id);
+        var oId = other.GetComponent<ObjectID>();
+        CompareMatch(oId.ID);
+
+        if (!UseChangeOnMatch) return;
+        oId.ID = MatchMadeID;
+        Id = MatchMadeID;
     }
 
-    public void Call(NameID match)
+    public void CompareMatch(NameID match)
     {
         if (match == Id)
         {
+            //Matched.Value = true;
             OnMatch.Invoke();
-            StartCoroutine(Restart());
+          //  StartCoroutine(Restart());
+        }
+        else
+        {
+            NoMatch.Invoke();
         }
     }
 
-    public IEnumerator Restart()
-    {
-        yield return new WaitForSeconds(HoldTime.Value);
-        OnRestart.Invoke();
-    }
+//    public void CallRestart()
+//    {
+//        StartCoroutine(Restart());
+//    }
+//
+//    public IEnumerator Restart()
+//    {
+//        if (Matched)
+//        {
+//            yield return new WaitForSeconds(HoldTime.Value);
+//        }
+//
+//        Matched.Value = false;
+//        OnRestart.Invoke();
+//    }
 }

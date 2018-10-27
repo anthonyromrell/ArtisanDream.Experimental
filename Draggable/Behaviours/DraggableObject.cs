@@ -2,16 +2,14 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-//Made By Anthony Romrell
-namespace ArtisanDream.Tools.Draggable.Behaviours
-{
+
     public class DraggableObject : MonoBehaviour
     {
         private Vector3 offsetPosition;
         private Vector3 newPosition;
         private Camera cam;
 
-        public bool CanDrag;
+        public bool CanDrag { get; set; }
         public UnityEvent OnDrag;
         public UnityEvent OnUp;
 
@@ -40,4 +38,3 @@ namespace ArtisanDream.Tools.Draggable.Behaviours
             OnUp.Invoke();
         }
     }
-}

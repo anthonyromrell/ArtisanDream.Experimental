@@ -7,15 +7,16 @@ namespace ArtisanDream.Experimental
 	{
 		public FloatData Speed;
 		public FloatData HoldTime;
-		private Vector3 position;
+		private Transform parent;
+		private bool canRun = true;
 		
 		private void OnTriggerEnter(Collider other)
 		{
-			position = other.transform.position;
+			parent = other.transform;
 		}
 
-		public void Call()
-		{
+		public void StartSnap()
+		{ 
 			StartCoroutine(MoveTo());
 			StartCoroutine(Stop());
 		}
@@ -23,16 +24,18 @@ namespace ArtisanDream.Experimental
 		private IEnumerator Stop()
 		{
 			yield return new WaitForSeconds(HoldTime.Value);
-			StopAllCoroutines();
+			canRun = false;
 		}
 
 		private IEnumerator MoveTo()
 		{
-			while (transform.position.x != position.x)
+			transform.parent = parent;
+			
+			while (canRun)
 			{
 				yield return new WaitForFixedUpdate();
-				transform.position = Vector3.Lerp(transform.position, position, Speed.Value);
-			}
+				transform.position = Vector3.Lerp(transform.position, parent.position, Speed.Value);
+			}			
 		}
 	}
 }

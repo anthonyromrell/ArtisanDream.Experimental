@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
 
-[CreateAssetMenu(fileName = "Hunt", menuName = "Ai/Function/Patrol")]
+[CreateAssetMenu(fileName = "Patrol", menuName = "Ai/Function/Patrol")]
 public class AiPatrol : AiBase
 {
     public UnityEvent NextPatrol;
@@ -16,10 +16,10 @@ public class AiPatrol : AiBase
     private Coroutine coroutine;
     public GameAction AddPointsToList;
     public GameAction AddPointList;
-    public float distance = 0;
-    public float HoldTime = 0.1f;
+    public FloatData distance;
+    public FloatData HoldTime;
 
-    public List<PatrolPoint> PatrolPoints { get; set; }
+    public List<Vector3Data> PatrolPoints { get; set; }
 
     private void OnEnable()
     {
@@ -36,23 +36,23 @@ public class AiPatrol : AiBase
 
     private void AddPatrolPoints(object obj)
     {
-        PatrolPoints.Add(obj as PatrolPoint);
+        PatrolPoints.Add(obj as Vector3Data);
     }
 
     private void AddPatrolPointList(object obj)
     {
-        PatrolPoints = obj as List<PatrolPoint>;
+        PatrolPoints = obj as List<Vector3Data>;
     }
 
     public override IEnumerator Nav(NavMeshAgent ai)
     {
-        yield return new WaitForSeconds(HoldTime);
+        yield return new WaitForSeconds(HoldTime.Value);
         ai.SetDestination(PatrolPoints[i].Value);
         var canRun = true;
         while (canRun)
         {
             yield return new WaitForFixedUpdate();
-            if ((ai.remainingDistance <= distance))
+            if ((ai.remainingDistance <= distance.Value))
             {
                 if (i < PatrolPoints.Count - 1)
                 {
@@ -64,7 +64,7 @@ public class AiPatrol : AiBase
                 {
                     i = 0;
                     canRun = false;
-                    yield return new WaitForSeconds(HoldTime);
+                    yield return new WaitForSeconds(HoldTime.Value);
                     EndPatrol.Invoke();
                 }
             }

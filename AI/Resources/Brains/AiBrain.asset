@@ -12,6 +12,3 @@ MonoBehaviour:
   m_Name: AiBrain
   m_EditorClassIdentifier: 
   Base: {fileID: 11400000, guid: fa7bad835181744e7864f027e12cb57e, type: 2}
-  StartingState: 1
-  TriggerEnterState: 2
-  TriggerExitState: 1

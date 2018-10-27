@@ -4,14 +4,19 @@
 	[CreateAssetMenu(menuName = "Change/Render Color")]
 	public class ChangeRenderColor : ScriptableObject
 	{
-		public ColorData Color;
+		private ColorData Color;
+
+		public void ColorSelection (ColorData c)
+		{
+			Color = c;
+		}
 	
-		public void Call (SpriteRenderer spriteRenderer)
+		public void ChangeSprite (SpriteRenderer spriteRenderer)
 		{
 			spriteRenderer.color = Color.Value;
 		}
 		
-		public void Call (Material material)
+		public void ChangeMaterial (Material material)
 		{
 			material.color = Color.Value;
 		}

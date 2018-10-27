@@ -1,12 +1,19 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 [CreateAssetMenu(menuName = "Ai/Point")]
 public class PatrolPoint : ScriptableObject
 {
-	public Vector3 Value;
+	public GameAction SendPoint;
+	public UnityEvent UpdateData;
 
-	public void UpdateData(Transform t)
+	private void OnEnable()
 	{
-		Value = t.position;
+		UpdateData.Invoke();
+	}
+
+	public void OnUpdateData(Transform t)
+	{
+		SendPoint.Raise(t);
 	}
 }

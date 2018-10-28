@@ -12,10 +12,12 @@ using UnityEngine.Events;
         public bool CanDrag { get; set; }
         public UnityEvent OnDrag;
         public UnityEvent OnUp;
+        public bool Draggable { get; set; }
 
         private void Start()
         {
             cam = Camera.main;
+            Draggable = true;
         }
 
         public IEnumerator OnMouseDown()
@@ -35,6 +37,9 @@ using UnityEngine.Events;
         private void OnMouseUp()
         {
             CanDrag = false;
-            OnUp.Invoke();
+            if (Draggable)
+            {
+                OnUp.Invoke();
+            }
         }
     }

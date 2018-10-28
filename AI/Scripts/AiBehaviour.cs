@@ -49,4 +49,9 @@ public class AiBehaviour : MonoBehaviour
         StopCoroutine(c);
         coroutine = StartCoroutine(Brain.Base.Nav(agent));
     }
+
+    public void ChangeBase(AiBase ai)
+    {
+        Brain.Base = ai;
+    }
 }

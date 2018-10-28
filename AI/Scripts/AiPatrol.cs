@@ -39,12 +39,10 @@ public class AiPatrol : AiBase
     private void AddPatrolPointList(object obj)
     {
         PatrolPoints = obj as List<Vector3Data>;
-       
     }
 
     public void RestartPatrol()
     {
-        Debug.Log(SendCoroutine + name);
         SendCoroutine.RaiseNoArgs();
     }
     

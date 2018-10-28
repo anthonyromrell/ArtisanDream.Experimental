@@ -36,13 +36,13 @@ public class WordObject : ScriptableObject
                 tempLetter.GetComponent<AiBehaviour>().Patrol = letter.Patrol;
                 tempLetter.name = letter.name;
                  
-//                tempRing = Instantiate(RingObject);
-//                tempRing.transform.parent = parentTransform;
-//                tempRing.GetComponent<ObjectID>().ID = letter.ID;
-//                tempRing.name = letter.name;
-//                ringPosition.x += distance;
-//                pos += distance;
-//                tempRing.transform.position = ringPosition;
+                tempRing = Instantiate(RingObject);
+                tempRing.transform.parent = parentTransform;
+                tempRing.GetComponent<ObjectID>().ID = letter.ID;
+                tempRing.name = letter.name;
+                ringPosition.x += distance;
+                pos += distance;
+                tempRing.transform.position = ringPosition;
                 //ringPosition.x -= .75f;
                 //tempRing.transform.parent.position += ringPosition;
             }

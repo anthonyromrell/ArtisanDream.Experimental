@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 public class MatchID : MonoBehaviour
 {
-    public NameID Id;
+    public NameID ID;
     public NameID MatchMadeID;
     public bool UseChangeOnMatch;
     //private NameID id;
@@ -22,12 +22,12 @@ public class MatchID : MonoBehaviour
 
         if (!UseChangeOnMatch) return;
         oId.ID = MatchMadeID;
-        Id = MatchMadeID;
+        ID = MatchMadeID;
     }
 
     public void CompareMatch(NameID match)
     {
-        if (match == Id)
+        if (match == ID)
         {
             //Matched.Value = true;
             OnMatch.Invoke();

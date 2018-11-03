@@ -31,7 +31,7 @@ public class WordObject : ScriptableObject
                 if (character != letter.name[0]) continue;
                 tempLetter = Instantiate(LetterPrefab);
                 tempLetter.GetComponentInChildren<SpriteRenderer>().sprite = letter.LetterSprite;
-                tempLetter.GetComponent<MatchID>().ID = letter.ID;
+                tempLetter.GetComponent<MatchID>().Id = letter.ID;
                 tempLetter.GetComponent<AiBehaviour>().OnStart = letter.Patrol;
                 tempLetter.GetComponent<AiBehaviour>().Patrol = letter.Patrol;
                 tempLetter.name = letter.name;

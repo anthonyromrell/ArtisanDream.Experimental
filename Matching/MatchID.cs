@@ -2,9 +2,11 @@
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(ObjectID))]
 public class MatchID : MonoBehaviour
 {
-    public NameID ID;
+    [HideInInspector]
+    public NameID Id;
     public NameID MatchMadeID;
     public bool UseChangeOnMatch;
     //private NameID id;
@@ -14,7 +16,13 @@ public class MatchID : MonoBehaviour
    // public FloatData HoldTime;
     //public BoolData Matched;
     private bool internalMatch;
-    
+
+    private IEnumerator Start()
+    {
+        yield return new WaitForFixedUpdate();
+        Id = GetComponent<ObjectID>().ID;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         var oId = other.GetComponent<ObjectID>();
@@ -22,12 +30,12 @@ public class MatchID : MonoBehaviour
 
         if (!UseChangeOnMatch) return;
         oId.ID = MatchMadeID;
-        ID = MatchMadeID;
+        Id = MatchMadeID;
     }
 
     public void CompareMatch(NameID match)
     {
-        if (match == ID)
+        if (match == Id)
         {
             //Matched.Value = true;
             OnMatch.Invoke();

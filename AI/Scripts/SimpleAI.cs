@@ -7,13 +7,18 @@ public class SimpleAI : MonoBehaviour
 	public Transform Destination;
 	private NavMeshAgent agent;
 
-	void Start ()
+	private IEnumerator Start ()
 	{
 		agent = GetComponent<NavMeshAgent>();
+		while (true)
+		{
+			yield return new WaitForFixedUpdate();
+			agent.destination = Destination.position;
+		}
 	}
-	
-	void Update ()
+
+	public void Restart()
 	{
-		agent.destination = Destination.position;
+		StartCoroutine(Start());
 	}
 }

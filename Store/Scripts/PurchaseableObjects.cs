@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Objects", menuName = "Store/Objects")]
-public class Objects : ScriptableObject
+public class PurchaseableObjects : ScriptableObject
 {
-	public List<Object> ObjectList;
+	public List<PurchasableObject> ObjectList;
 }

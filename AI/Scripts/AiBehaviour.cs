@@ -6,6 +6,8 @@ using UnityEngine.Events;
 //Made By Anthony Romrell
 public class AiBehaviour : MonoBehaviour
 {
+    public UnityEvent RestartEvent, EndRestartEvent;
+    
     public AiBase OnStart, OnEnter, OnExit;
     
     [HideInInspector]
@@ -15,6 +17,8 @@ public class AiBehaviour : MonoBehaviour
     public AiPatrol Patrol;
     private Coroutine coroutine;
     private NavMeshAgent agent;
+
+    public FloatData HoldTime;
 
     private void Start()
     {  
@@ -66,7 +70,9 @@ public class AiBehaviour : MonoBehaviour
 
     private IEnumerator OnRestart()
     {
-        yield return new WaitForSeconds(2);
+        RestartEvent.Invoke();
+        yield return new WaitForSeconds(HoldTime.Value);
+        EndRestartEvent.Invoke();
         agent.enabled = true;
         OnCall(coroutine);
     }

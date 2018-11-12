@@ -144,11 +144,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19ec595f0024b440f9b6bf063af904c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RestartEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  EndRestartEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   OnStart: {fileID: 11400000, guid: fa7bad835181744e7864f027e12cb57e, type: 2}
   OnEnter: {fileID: 11400000, guid: 44fd2d90a0ec44a94ab0fb0061e115a6, type: 2}
   OnExit: {fileID: 11400000, guid: fa7bad835181744e7864f027e12cb57e, type: 2}
   Brain: {fileID: 11400000, guid: da63cf8b9aeed47a481097ecf39a9c6c, type: 2}
   Patrol: {fileID: 0}
+  HoldTime: {fileID: 11400000, guid: 3592028d3a8164568a18963ece512925, type: 2}
 --- !u!195 &334987977
 NavMeshAgent:
   m_ObjectHideFlags: 0

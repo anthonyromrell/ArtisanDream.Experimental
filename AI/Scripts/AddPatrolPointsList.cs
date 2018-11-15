@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 //Made By Anthony Romrell
 public class AddPatrolPointsList : MonoBehaviour
@@ -10,7 +8,6 @@ public class AddPatrolPointsList : MonoBehaviour
 	private List<Vector3Data> patrolPoints;
 	public List<Transform> PointObjects;
 	
-	//public UnityEvent UpdateData;
 	public GameAction OnSendAction;
 
 	private void Start()
@@ -21,7 +18,6 @@ public class AddPatrolPointsList : MonoBehaviour
 			UpdateInfo(obj);
 		}
 		SendAction();
-		//UpdateData.Invoke();
 	}
 
 	public void UpdateInfo(Transform t)

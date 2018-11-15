@@ -1,13 +1,9 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Events;
 
 //Made By Anthony Romrell
 public class AiBehaviour : MonoBehaviour
-{
-    public UnityEvent RestartEvent, EndRestartEvent;
-    
+{   
     public AiBase OnStart, OnEnter, OnExit;
     
     [HideInInspector]
@@ -17,8 +13,6 @@ public class AiBehaviour : MonoBehaviour
     public AiPatrol Patrol;
     private Coroutine coroutine;
     private NavMeshAgent agent;
-
-    public FloatData HoldTime;
 
     private void Start()
     {  
@@ -64,19 +58,5 @@ public class AiBehaviour : MonoBehaviour
     public void ChangeBase(AiBase ai)
     {
         Brain.Base = ai;
-    }
-
-    public void Restart()
-    {
-        StartCoroutine(OnRestart());
-    }
-
-    private IEnumerator OnRestart()
-    {
-        RestartEvent.Invoke();
-        yield return new WaitForSeconds(HoldTime.Value);
-        EndRestartEvent.Invoke();
-        agent.enabled = true;
-        OnCall(coroutine);
     }
 }

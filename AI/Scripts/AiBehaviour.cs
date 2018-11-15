@@ -55,7 +55,10 @@ public class AiBehaviour : MonoBehaviour
     private void OnCall(Coroutine c)
     {
         StopCoroutine(c);
-        coroutine = StartCoroutine(Brain.Base.Nav(agent));
+        if (agent.isActiveAndEnabled)
+        {
+            coroutine = StartCoroutine(Brain.Base.Nav(agent));
+        }
     }
 
     public void ChangeBase(AiBase ai)

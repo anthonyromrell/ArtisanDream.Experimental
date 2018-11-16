@@ -91,9 +91,9 @@ MonoBehaviour:
   Event:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1978265258660788}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 114470316709479656}
+        m_MethodName: Call
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -134,18 +134,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   NoMatch:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114470316709479656}
-        m_MethodName: DisableOnCall
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 135927824794170484}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Collider, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114390582335308530
@@ -202,8 +191,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c861bf93098c243a096109cf213db64c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StartEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  EndEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   CanTrigger: 0
-  Disable: 0
+  CanDestroy: 1
+  State: 0
+  Seconds: 0.25
 --- !u!114 &114916320495796574
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -215,22 +216,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19ec595f0024b440f9b6bf063af904c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RestartEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  EndRestartEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
   OnStart: {fileID: 11400000, guid: b524c2b1c824345d7a84fb18b3d57197, type: 2}
   OnEnter: {fileID: 11400000, guid: b524c2b1c824345d7a84fb18b3d57197, type: 2}
   OnExit: {fileID: 11400000, guid: b524c2b1c824345d7a84fb18b3d57197, type: 2}
   Brain: {fileID: 0}
   Patrol: {fileID: 0}
-  HoldTime: {fileID: 11400000, guid: 3592028d3a8164568a18963ece512925, type: 2}
 --- !u!135 &135927824794170484
 SphereCollider:
   m_ObjectHideFlags: 1

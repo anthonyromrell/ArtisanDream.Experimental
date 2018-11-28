@@ -2,23 +2,20 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace ArtisanDream.Experimental.UI
+public class Counter : MonoBehaviour
 {
-	public class Counter : MonoBehaviour
-	{
-		public UnityEvent OnCount;
-	
-		public float Seconds = 2.0f;
-		public int Numbers = 30;
+    public UnityEvent OnCount;
 
-		IEnumerator Start ()
-		{		
-			while (Numbers > 0)
-			{
-				OnCount.Invoke();
-				yield return new WaitForSeconds(Seconds);
-				Numbers--;
-			}
-		}
-	}
+    public float Seconds = 2.0f;
+    public int Numbers = 30;
+
+    IEnumerator Start()
+    {
+        while (Numbers > 0)
+        {
+            OnCount.Invoke();
+            yield return new WaitForSeconds(Seconds);
+            Numbers--;
+        }
+    }
 }

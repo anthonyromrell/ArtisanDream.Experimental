@@ -2,17 +2,17 @@
 using UnityEngine;
 
 //Made By Anthony Romrell
-public class AddPatrolPointsList : MonoBehaviour
+public class AddPointsList : MonoBehaviour
 {
 
-	private List<Vector3Data> patrolPoints;
+	private List<Vector3Data> points;
 	public List<Transform> PointObjects;
 	
 	public GameAction OnSendAction;
 
 	private void Start()
 	{
-		patrolPoints = new List<Vector3Data>();
+		points = new List<Vector3Data>();
 		foreach (var obj in PointObjects)
 		{
 			UpdateInfo(obj);
@@ -24,11 +24,11 @@ public class AddPatrolPointsList : MonoBehaviour
 	{
 		Vector3Data temp = ScriptableObject.CreateInstance<Vector3Data>();
 		temp.Value = t.position;
-		patrolPoints.Add(temp);
+		points.Add(temp);
 	}
 
 	public void SendAction()
 	{
-		OnSendAction.Raise(patrolPoints);
+		OnSendAction.Raise(points);
 	}
 }

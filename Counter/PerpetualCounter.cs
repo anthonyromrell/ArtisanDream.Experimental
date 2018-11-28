@@ -11,8 +11,8 @@ public class PerpetualCounter : MonoBehaviour
     {
         while (true)
         {
-            OnCount.Invoke();
             yield return new WaitForSeconds(Seconds.Value);
+            OnCount.Invoke();
         }
     }
 

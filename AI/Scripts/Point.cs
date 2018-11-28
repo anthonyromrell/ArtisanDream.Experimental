@@ -2,7 +2,7 @@
 using UnityEngine.Events;
 
 [CreateAssetMenu(menuName = "Ai/Point")]
-public class PatrolPoint : ScriptableObject
+public class Point : ScriptableObject
 {
 	public GameAction SendPoint;
 	public UnityEvent UpdateData;

@@ -4,6 +4,7 @@
 public class PurchasableObject : ScriptableObject
 {
     public Object Item;
+    public Sprite PreviewArt;
     public int UsageCount = 3;
     public int Value;
     public bool Upgrade;

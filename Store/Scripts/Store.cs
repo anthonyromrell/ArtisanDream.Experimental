@@ -34,9 +34,23 @@ public class Store : ScriptableObject
 		{
 			var newButton = Instantiate(Button, newCanvas.GetComponentInChildren<VerticalLayoutGroup>().transform);
 			var buttonComponent = newButton.GetComponent<Button>();
+			var imageComponent = newButton.GetComponent<Image>();
+			imageComponent.sprite = obj.PreviewArt;
+			//imageComponent.sprite
 			buttonComponent.onClick.AddListener(() => { MakePurchase(obj);});
+			buttonComponent.onClick.AddListener(() => { DisableButton(obj, buttonComponent);});
+			
 			var label = newButton.GetComponentInChildren<Text>();
 			label.text = obj.name;
+		}
+	}
+
+	private void DisableButton(PurchasableObject obj, Button btn)
+	{
+		if (obj.Perpetual)
+		{
+			btn.interactable = false;
+			btn.onClick.RemoveAllListeners();
 		}
 	}
 	
@@ -74,7 +88,4 @@ public class Store : ScriptableObject
 			Available.ObjectList.Clear();
 		}
 	}
-
-	
-
 }

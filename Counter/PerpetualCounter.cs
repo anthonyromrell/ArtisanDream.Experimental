@@ -6,13 +6,15 @@ public class PerpetualCounter : MonoBehaviour
 {
     public UnityEvent OnCount;
     public FloatData Seconds;
+    public float HoldTime = 0.3f;
 
     private IEnumerator Start()
     {
+        yield return new WaitForSeconds(HoldTime);
         while (true)
         {
-            yield return new WaitForSeconds(Seconds.Value);
             OnCount.Invoke();
+            yield return new WaitForSeconds(Seconds.Value);
         }
     }
 

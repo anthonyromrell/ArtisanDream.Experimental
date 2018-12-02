@@ -36,7 +36,7 @@ public class Store : ScriptableObject
 			var buttonComponent = newButton.GetComponent<Button>();
 			var imageComponent = newButton.GetComponent<Image>();
 			imageComponent.sprite = obj.PreviewArt;
-			//imageComponent.sprite
+		
 			buttonComponent.onClick.AddListener(() => { MakePurchase(obj);});
 			buttonComponent.onClick.AddListener(() => { DisableButton(obj, buttonComponent);});
 			
@@ -57,14 +57,21 @@ public class Store : ScriptableObject
 	
 	public void MakePurchase(PurchasableObject obj)
 	{
-		Debug.Log("test");
 		for (var i = 0; i < Available.ObjectList.Count; i++)
 		{
 			var availableObject = Available.ObjectList[i];
 
 			if (availableObject != obj || Cash.Value < availableObject.Value) continue;
 			Cash.Value -= availableObject.Value;
-			Purchased.ObjectList.Add(obj);
+			
+			if (!Purchased.ObjectList.Contains(obj))
+			{
+				Purchased.ObjectList.Add(obj);
+			}
+			else
+			{
+				obj.UsageCount += obj.UsagePurchase;
+			}
 			
 			if (availableObject.Perpetual)
 			{
@@ -82,6 +89,7 @@ public class Store : ScriptableObject
 			for (var i = 0; i < Available.ObjectList.Count; i++)
 			{
 				var item = Available.ObjectList[i];
+				Available.ObjectList[i].Perpetual = true;
 				Purchased.ObjectList.Add(item);
 			}
 

@@ -1,16 +1,4 @@
-﻿using UnityEngine;
-
-public interface ICall<T>
+﻿public interface ICall
 {
 	void Call();
-	void DoWork();
-	void DoWork<T>();
-	void DoWork<T, TU>();
 }
-
-interface ICallTransform : ICall<Transform>
-{
-	void Call(Transform obj);
-}  //No error
-interface IFebruary<T> : ICall<int> { }  //No error
-interface IMarch<T>    : ICall<T> { }    //No error

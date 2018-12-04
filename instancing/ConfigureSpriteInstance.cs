@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
 //Made By Anthony Romrell
-[CreateAssetMenu(menuName = "Instancing/Configure Sprite Instance")]
-public class ConfigureSpriteInstance : ScriptableObject
+[CreateAssetMenu(menuName = "Instancing/SpriteConfig")]
+public class SpriteConfig : ScriptableObject
 {
 	public GameObject Prefab;
 	public Sprite SpriteImage;

@@ -1,11 +1,10 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(menuName = "Instancing/Configure Model Instance")]
-public class PowerUpConfig : ScriptableObject
+[CreateAssetMenu(menuName = "Instancing/ModelConfig")]
+public class ModelConfig: ScriptableObject
 {
 	public GameObject Prefab;
-	public Sprite SpriteImage;
-	public Color SpriteColor;
+	public Color ObjColor;
 
 	public void OnConfigure()
 	{
@@ -13,7 +12,5 @@ public class PowerUpConfig : ScriptableObject
 		newPrefab.name = this.name;
 		
 		var newSprite = newPrefab.GetComponent<SpriteRenderer>();
-		newSprite.sprite = SpriteImage;
-		newSprite.color = SpriteColor;
 	}
 }

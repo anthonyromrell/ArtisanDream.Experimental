@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [CreateAssetMenu]
 public class ConfigureColorInstance : ScriptableObject
@@ -12,7 +10,6 @@ public class ConfigureColorInstance : ScriptableObject
 	{
 		var newObj = Instantiate(Prefab);
 		newObj.GetComponentInChildren<SpriteRenderer>().color = ConfigObj.Color.Value;
-		//Debug.Log(newObj.GetComponent<ObjectId>());
 		newObj.GetComponent<ObjectID>().ID = ConfigObj.Id;
 	}
 }

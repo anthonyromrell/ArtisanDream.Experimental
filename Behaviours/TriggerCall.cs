@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿/*using UnityEngine;
 
 public class TriggerCall: MonoBehaviour
 {
@@ -12,4 +12,4 @@ public class TriggerCall: MonoBehaviour
 
 internal class Type<T>
 {
-}
+}*/

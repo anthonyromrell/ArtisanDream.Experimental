@@ -5,6 +5,7 @@ public class UpdateText : MonoBehaviour
 {
 	public IntData Data;
 	private Text label;
+	public string Format = "C0";
 	
 	void Start ()
 	{
@@ -14,6 +15,6 @@ public class UpdateText : MonoBehaviour
 
 	public void OnUpdate()
 	{
-		label.text = Data.Value.ToString("C0");
+		label.text = Data.Value.ToString(Format);
 	}
 }

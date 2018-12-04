@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
@@ -12,6 +13,8 @@ public class Store : ScriptableObject
 	public GameObject Button;
 	public IntData Cash;
 	public int TotalValue = 3000;
+
+	public float HoldTime = 0.25f;
 
 	public UnityEvent MadePurchase;
 	
@@ -28,10 +31,16 @@ public class Store : ScriptableObject
 
 	public void BuildUI()
 	{
+		//(BuildButtons());
+	}
+
+	private IEnumerator BuildButtons()
+	{
 		var newCanvas = Instantiate(Canvas);
 		
 		foreach (var obj in Available.ObjectList)
 		{
+			yield return new WaitForSeconds(HoldTime);
 			var newButton = Instantiate(Button, newCanvas.GetComponentInChildren<VerticalLayoutGroup>().transform);
 			var buttonComponent = newButton.GetComponent<Button>();
 			var imageComponent = newButton.GetComponent<Image>();

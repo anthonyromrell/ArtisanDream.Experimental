@@ -6,7 +6,7 @@ public class RunCoroutineBehaviour : MonoBehaviour
     public GameAction CoroutineActionRun;
     private IRunCoroutine objectToRun;
     
-    void Start()
+    void Awake()
     {
         GetCoroutineObject.Raise += GetObjectHandler;
         CoroutineActionRun.RaiseNoArgs += RunCoroutineActionHandler;

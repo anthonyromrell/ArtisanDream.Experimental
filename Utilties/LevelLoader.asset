@@ -10,5 +10,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9fc86b8e99b44d428860a2465ac1111, type: 3}
-  m_Name: New Game Controller
+  m_Name: LevelLoader
   m_EditorClassIdentifier: 

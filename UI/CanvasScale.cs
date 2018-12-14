@@ -3,21 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[ExecuteInEditMode]
 public class CanvasScale : MonoBehaviour
 {
-    public float HighResolution = 2000, HighFactor = 4, LowFactor = 2;
+    public FloatData HighResolution, HighFactor, LowFactor;
     
-    void Awake()
+    private void Awake()
     {
-        RectTransform rt = GetComponent<RectTransform>();
-        var scaler = GetComponent<CanvasScaler>();
-        if (rt.rect.width > HighResolution)
-        {
-            scaler.scaleFactor = HighFactor;
-        }
-        else
-        {
-            scaler.scaleFactor = LowFactor;
-        }
+        var rt = GetComponent<RectTransform>();
+        
+        var scale = GetComponent<CanvasScaler>();
+        
+        scale.scaleFactor = rt.rect.width > HighResolution.Value ? HighFactor.Value : LowFactor.Value;
     }
 }

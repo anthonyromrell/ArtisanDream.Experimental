@@ -15,7 +15,7 @@ MonoBehaviour:
   ObjectToWork: {fileID: 0}
   SendThisCoroutine: {fileID: 11400000, guid: d040f3a7436094153b9464a745813587, type: 2}
   RunThisCoroutine: {fileID: 11400000, guid: f6df48a8d7ce2426f8258d089c7d5d6d, type: 2}
-  ObjectToWait: {fileID: 11400000, guid: 2a351cea0ba2e4854a19c8b6ac1b7b51, type: 2}
+  WaitObject: {fileID: 11400000, guid: 58c905c91eef04879837cdb346c1cd04, type: 2}
   Event:
     m_PersistentCalls:
       m_Calls:

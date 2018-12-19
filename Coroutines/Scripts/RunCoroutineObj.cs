@@ -9,18 +9,17 @@ public class RunCoroutineObj : ScriptableObject, IRunCoroutine
     private ICall calledWorkObject;
     public GameAction SendThisCoroutine;
     public GameAction RunThisCoroutine;
-     
-    public Object ObjectToWait;
+
+    public Object WaitObject;
     public IWait WaitObj { private get; set; }
     
     public UnityEvent Event;
 
-    private void OnEnable()
+    public void OnEnable()
     {
-        WaitObj = ObjectToWait as IWait;
+        WaitObj = WaitObject as IWait;
         calledWorkObject = ObjectToWork as ICall;
         WaitObj?.Create();
-   //     SendThisCoroutine.Raise(this);
     }
 
     public void StartRun()
@@ -41,6 +40,8 @@ public class RunCoroutineObj : ScriptableObject, IRunCoroutine
 
 public interface IRunCoroutine
 {
+    //Object WaitObject { get; set; }
     IWait WaitObj { set; }
+    void OnEnable();
     IEnumerator RunCoroutine();
 }

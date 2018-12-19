@@ -406,7 +406,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &532997893
 Transform:
   m_ObjectHideFlags: 0
@@ -559,7 +559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c8f197f769ef4455a4faa48219430cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coroutineObj: {fileID: 11400000, guid: cfd9ecf7ad9d14a4aa4d6203d819dac7, type: 2}
+  coroutineObj: {fileID: 11400000, guid: 428bf009b9f1c4b788831b3e93483f36, type: 2}
 --- !u!4 &927909111
 Transform:
   m_ObjectHideFlags: 0
@@ -581,7 +581,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 927909109}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7dbfe5562a6445ecb7a369275eff0f8, type: 3}
   m_Name: 

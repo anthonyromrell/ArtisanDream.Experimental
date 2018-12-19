@@ -4,6 +4,7 @@
 public class WaitForSecondsObj : ScriptableObject, IWait
 {
     public float Seconds = 1;
+    
     public object Obj { get; set; }
 
     public void Create()

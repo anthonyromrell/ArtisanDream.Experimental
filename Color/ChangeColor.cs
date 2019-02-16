@@ -1,12 +1,12 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class ChangeColor : MonoBehaviour
 {
     public ColorData ColorSelection;
+    public UnityEvent ChangeOnTrigger;
     
     public enum ComponentsToChange
     {
@@ -38,5 +38,10 @@ public class ChangeColor : MonoBehaviour
             default:
                 throw new ArgumentOutOfRangeException();
         }
+    }
+
+    private void OnTriggerEnter(Collider obj)
+    {
+        obj.GetComponent<SpriteRenderer>().color = ColorSelection.Value;
     }
 }

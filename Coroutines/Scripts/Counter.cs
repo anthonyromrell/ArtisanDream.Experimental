@@ -5,9 +5,11 @@ using UnityEngine.Events;
 public class Counter : MonoBehaviour
 {
     public UnityEvent OnCount;
+    public UnityEvent EndCount;
 
-    public float Seconds = 2.0f;
+    public float Seconds = 4.0f;
     public int Numbers = 30;
+    [SerializeField] private IWait waitObj;
 
     IEnumerator Start()
     {
@@ -17,5 +19,12 @@ public class Counter : MonoBehaviour
             yield return new WaitForSeconds(Seconds);
             Numbers--;
         }
+        EndCount.Invoke();
+    }
+
+    public IWait WaitObj
+    {
+        get => waitObj;
+        set => waitObj = value;
     }
 }

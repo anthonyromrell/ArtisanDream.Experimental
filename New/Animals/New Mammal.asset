@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e47558c4ca6ab498d96dfba8a19e8138, type: 3}
+  m_Name: New Mammal
+  m_EditorClassIdentifier: 
+  Art: {fileID: 881551332251110414, guid: 8cd5465363e8c4b83a97a7e1a86ad7a5, type: 3}
+  Hat: {fileID: 0}
+  Health: 1
+  SkinColor: {r: 0, g: 0.041553974, b: 1, a: 1}
+  Speed: 10
+  Size: 1
+  RunEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  EatEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  ActionObj: {fileID: 0}
+  FurCount: 10000
+  FurColor: {r: 0.7830189, g: 0.49902633, b: 0.21052866, a: 1}

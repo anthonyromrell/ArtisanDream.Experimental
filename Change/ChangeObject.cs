@@ -21,9 +21,4 @@ public class ChangeObject : ScriptableObject
     {
         matchId.ID = Id;
     }
-
-    public void OnSendChange(GamePiece obj)
-    {
-        SendChange.Raise(obj);
-    }
 }

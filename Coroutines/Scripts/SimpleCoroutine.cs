@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 public class SimpleCoroutine : MonoBehaviour
 {
-    public UnityEvent StartEvent, CoroutineEvent, EndCountDownEvent;
+    public UnityEvent StartEvent, OnEnableEvent, CoroutineEvent, EndCountDownEvent;
     public float StartHoldTime = 0;
     public float RepeatHoldTime = 1;
     public bool CanRun { private get; set; }
@@ -12,6 +12,11 @@ public class SimpleCoroutine : MonoBehaviour
     private void Start()
     {
         StartEvent.Invoke();
+    }
+
+    private void OnEnable()
+    {
+        OnEnableEvent.Invoke();
     }
 
     public void OnStartCoroutine()

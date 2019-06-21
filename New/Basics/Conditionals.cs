@@ -25,9 +25,9 @@ public class Conditionals : MonoBehaviour
         Lock
     }
 
-    public WeaponState CurrentWeaponState = WeaponState.Lock;
+    public WeaponState currentWeaponState = WeaponState.Lock;
 
-    public GameStates CurrentGamestate = GameStates.Starting;
+    public GameStates currentGameState = GameStates.Starting;
     
     private void Start()
     {
@@ -52,16 +52,16 @@ public class Conditionals : MonoBehaviour
             // Do Other Other Work
         }
 
-        switch (CurrentGamestate)
+        switch (currentGameState)
         {
             case GameStates.Starting:
                 //Do Work
-                CurrentGamestate = GameStates.Playing;
+                currentGameState = GameStates.Playing;
                 break;
             
             case GameStates.Playing:
                 
-                CurrentGamestate = GameStates.Playing;
+                currentGameState = GameStates.Playing;
                 //Do Work
                 break;
             
@@ -97,7 +97,7 @@ public class Conditionals : MonoBehaviour
             
         }
 
-        switch (CurrentWeaponState)
+        switch (currentWeaponState)
         {
             case WeaponState.Hold:
                 //

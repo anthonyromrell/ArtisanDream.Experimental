@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d42d54212679454d9102dd8b7dfee34, type: 3}
+  m_Name: Plate 2
+  m_EditorClassIdentifier: 
+  StorePreview: {fileID: 21300024, guid: 7c22f58ac794a644a90b9819c3c9a52d, type: 3}
+  UsableItem: {fileID: 1286978461755226, guid: 2fbcf40652f0c8c4295a00dba75a0900, type: 3}
+  OnPurchase:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnUse:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  PreviewColor: {r: 0.12156861, g: 0.4555839, b: 0.5568628, a: 1}
+  price: 0
+  purchased: 0

@@ -4,9 +4,12 @@ using UnityEngine.Events;
 public class ApplyForces : MonoBehaviour
 {
     public float holdTime = 1.0f;
-    public Vector3 forces;
+    public float PowerLevel = 10f;
+    public Vector3 forcesDirA, forcesDirB;
     public UnityEvent EnableEvent, DisableEvent, TriggerEnterEvent;
     private Rigidbody rBody;
+    public BoolData DirectionBool;
+    
    
     private void Awake()
     {
@@ -16,8 +19,18 @@ public class ApplyForces : MonoBehaviour
     private void OnEnable()
     {
         Invoke(nameof(Disable), holdTime);
+       
         rBody.WakeUp();
-        rBody.AddForce(forces);
+        if (DirectionBool.Value)
+        {
+            transform.rotation = Quaternion.Euler(0,0,0);
+            rBody.AddForce(forcesDirA*PowerLevel);
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(0,0,180);
+            rBody.AddForce(forcesDirB*PowerLevel);
+        }
         EnableEvent.Invoke();
     }
 
@@ -34,6 +47,7 @@ public class ApplyForces : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
+        print(other);
         TriggerEnterEvent.Invoke();
     }
 }

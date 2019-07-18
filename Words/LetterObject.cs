@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Words/Letter")]
 public class LetterObject : ScriptableObject
 {
-	public Sprite LetterSprite;
-	public NameID ID;
-	public AiPatrol Patrol;
+	public Sprite letterSprite;
+	public NameID id;
+	public AiPatrol patrol;
 }

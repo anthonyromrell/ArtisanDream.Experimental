@@ -28,7 +28,7 @@ public class LaserBeam : MonoBehaviour
         
         wfsObj = ScriptableObject.CreateInstance<WaitForFixedUpdateObj>();
         
-        if (DirectionBool.Value)
+        if (DirectionBool.value)
         {
            //transform.rotation = Quaternion.Euler(0,0,0);
         }

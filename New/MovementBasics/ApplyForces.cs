@@ -21,7 +21,7 @@ public class ApplyForces : MonoBehaviour
         Invoke(nameof(Disable), holdTime);
        
         rBody.WakeUp();
-        if (DirectionBool.Value)
+        if (DirectionBool.value)
         {
             transform.rotation = Quaternion.Euler(0,0,0);
             rBody.AddForce(forcesDirA*PowerLevel);

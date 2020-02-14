@@ -1,34 +1,35 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu]
 public class CharacterControlObj : ScriptableObject
 {
-   public float MoveSpeed = 10;
-   public float JumpSpeed = 10;
-   private int JumpCount = 1;
-   public int JumpCountMax = 2;
-   public FloatDataObj Gravity;
+   [FormerlySerializedAs("MoveSpeed")] public float moveSpeed = 10;
+   [FormerlySerializedAs("JumpSpeed")] public float jumpSpeed = 10;
+   private int jumpCount = 1;
+   [FormerlySerializedAs("JumpCountMax")] public int jumpCountMax = 2;
+   [FormerlySerializedAs("Gravity")] public FloatDataObj gravity;
    
    private Vector3 position;
    
    public void OnMove(CharacterController controller)
    {
-      if (Input.GetButtonDown("Jump")  &&  JumpCount < JumpCountMax)
+      if (Input.GetButtonDown("Jump")  &&  jumpCount < jumpCountMax)
       {
-         position.y = JumpSpeed;
-         JumpCount++;
+         position.y = jumpSpeed;
+         jumpCount++;
       }
 
       if (controller.isGrounded)
       {
-         JumpCount = 1;
+         jumpCount = 1;
          position.x = Input.GetAxis("Horizontal");
       }
       
       position.x = Input.GetAxis("Horizontal");
-      position.y += Gravity.Value*Time.deltaTime;
-      position.x *= MoveSpeed;
+      position.y += gravity.value*Time.deltaTime;
+      position.x *= moveSpeed;
       controller.Move(position*Time.deltaTime);
    }
 }

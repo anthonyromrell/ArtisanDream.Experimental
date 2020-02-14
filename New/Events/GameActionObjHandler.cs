@@ -1,18 +1,19 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 public class GameActionObjHandler : MonoBehaviour
 {
-   public GameActionObj ActionObj;
-   public UnityEvent RaiseEvent;
+   [FormerlySerializedAs("ActionObj")] public GameActionObj actionObj;
+   [FormerlySerializedAs("RaiseEvent")] public UnityEvent raiseEvent;
 
    private void Awake()
    {
-      ActionObj.Action += OnRaise;
+      actionObj.action += OnRaise;
    }
 
    private void OnRaise()
    {
-      RaiseEvent.Invoke();
+      raiseEvent.Invoke();
    }
 }

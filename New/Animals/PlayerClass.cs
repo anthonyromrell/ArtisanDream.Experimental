@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 public class PlayerClass : MonoBehaviour
 {
-    public Animal AnimalObj;
+    [FormerlySerializedAs("AnimalObj")] public Animal animalObj;
     
     void Start()
     {

@@ -1,18 +1,19 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu]
 public class SideMoveWithJump : SideMoveNoJump
 {
-    public float JumpSpeed = 10;
-    public int JumpCountMax = 2;
+    [FormerlySerializedAs("JumpSpeed")] public float jumpSpeed = 10;
+    [FormerlySerializedAs("JumpCountMax")] public int jumpCountMax = 2;
     
     private int jumpCount = 1;
     
     public override void OnMove(CharacterController controller)
     {
-        if (Input.GetButtonDown("Jump")  &&  jumpCount < JumpCountMax)
+        if (Input.GetButtonDown("Jump")  &&  jumpCount < jumpCountMax)
         {
-            Position.y = JumpSpeed;
+            Position.y = jumpSpeed;
             jumpCount++;
         }
 

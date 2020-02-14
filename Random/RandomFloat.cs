@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(menuName = "Random/Float")]
 public class RandomFloat : FloatData
 {
-    public new float Value;
-
-    [Range(0, 25)] public float ValueRange;
+  
+    [FormerlySerializedAs("ValueRange")] [Range(0, 25)] public float valueRange;
 
     public float Randomize()
     {
-        Value = Mathf.RoundToInt(UnityEngine.Random.Range(0, ValueRange));
-        return Value;
+        value = Mathf.RoundToInt(UnityEngine.Random.Range(0, valueRange));
+        return value;
     }
 }

@@ -1,19 +1,20 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(menuName = "Random/Object Handler")]
 public class RandomObjectHandler : ScriptableObject
 {
     public UnityEvent Event;
 
-    public Object NewObject;
-    public Object TypeOf;
+    [FormerlySerializedAs("NewObject")] public Object newObject;
+    [FormerlySerializedAs("TypeOf")] public Object typeOf;
 
-    public RandomObjectSelector ObjectSelector;
+    [FormerlySerializedAs("ObjectSelector")] public RandomObjectSelector objectSelector;
 
     private void OnEnable()
     {
-        Debug.Log(TypeOf.GetType());
-        NewObject = (GameObject) ObjectSelector.ReturnRandomObject();
+        Debug.Log(typeOf.GetType());
+        newObject = (GameObject) objectSelector.ReturnRandomObject();
     }
 }

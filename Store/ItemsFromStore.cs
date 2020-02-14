@@ -20,7 +20,7 @@ public class ItemsFromStore : MonoBehaviour
 
     public void StartAddToThisAction()
     {
-        addToThisAction.Raise = AddToHandler;
+        addToThisAction.raise = AddToHandler;
     }
 
     private void AddToHandler(object item)
@@ -29,7 +29,7 @@ public class ItemsFromStore : MonoBehaviour
         var newItem = item as StoreItem;
         inUseItems.ChangeItem(thisItem, newItem);
         storeButton.UpdateButton(newItem);
-        previousItem.InUse = false;
+        previousItem.inUse = false;
         previousItem.OnUpdate();
     }
 }

@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu]
 public class GameActionObj : ScriptableObject
 {
-    public UnityAction Action;
+    [FormerlySerializedAs("Action")] public UnityAction action;
 
     public void RaiseAction()
     {
-        Action?.Invoke();
+        action?.Invoke();
     }
 }

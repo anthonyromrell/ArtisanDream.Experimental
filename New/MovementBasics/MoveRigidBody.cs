@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 [RequireComponent(typeof(Rigidbody))]
 public class MoveRigidBody : MonoBehaviour
 {
     private Rigidbody rigid;
-    public float Force = 10;
+    [FormerlySerializedAs("Force")] public float force = 10;
 
     private void Start()
     {
@@ -14,6 +15,6 @@ public class MoveRigidBody : MonoBehaviour
 
     private void Update()
     {
-        rigid.AddForce(Input.GetAxis("Horizontal")*Force,0,0);
+        rigid.AddForce(Input.GetAxis("Horizontal")*force,0,0);
     }
 }

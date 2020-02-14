@@ -1,25 +1,26 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 public class Counter : MonoBehaviour
 {
-    public UnityEvent OnCount;
-    public UnityEvent EndCount;
+    [FormerlySerializedAs("OnCount")] public UnityEvent onCount;
+    [FormerlySerializedAs("EndCount")] public UnityEvent endCount;
 
-    public float Seconds = 4.0f;
-    public int Numbers = 30;
+    [FormerlySerializedAs("Seconds")] public float seconds = 4.0f;
+    [FormerlySerializedAs("Numbers")] public int numbers = 30;
     [SerializeField] private IWait waitObj;
 
     IEnumerator Start()
     {
-        while (Numbers > 0)
+        while (numbers > 0)
         {
-            OnCount.Invoke();
-            yield return new WaitForSeconds(Seconds);
-            Numbers--;
+            onCount.Invoke();
+            yield return new WaitForSeconds(seconds);
+            numbers--;
         }
-        EndCount.Invoke();
+        endCount.Invoke();
     }
 
     public IWait WaitObj

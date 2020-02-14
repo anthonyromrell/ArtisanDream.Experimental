@@ -1,17 +1,18 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu]
 public class CharacterControllerBase : ScriptableObject
 {
-    public MovementStyleBase MoveStyle;
+    [FormerlySerializedAs("MoveStyle")] public MovementStyleBase moveStyle;
 
     public void MoveController(CharacterController controller)
     {
-        MoveStyle.OnMove(controller);
+        moveStyle.OnMove(controller);
     }
 
     public void ChangeMoveStyle(MovementStyleBase style)
     {
-        MoveStyle = style;
+        moveStyle = style;
     }
 }

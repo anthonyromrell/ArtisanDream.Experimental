@@ -1,15 +1,16 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(menuName = "Coroutines/Wait For Seconds")]
 public class WaitForSecondsObj : ScriptableObject, IWait
 {
-    public float Seconds = 1;
+    [FormerlySerializedAs("Seconds")] public float seconds = 1;
     
     public object Obj { get; set; }
 
     public void Create()
     {
-        Obj = new WaitForSeconds(Seconds);
+        Obj = new WaitForSeconds(seconds);
     }
 }
     

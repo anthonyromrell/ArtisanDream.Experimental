@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 [RequireComponent(
@@ -16,8 +17,8 @@ public class StoreButton : MonoBehaviour
     [HideInInspector] public StoreItem currentItem;
     
     public GameObject purchasedImg;
-    public GameAction AddAction;
-    public GameAction ItemAction;
+    [FormerlySerializedAs("AddAction")] public GameAction addAction;
+    [FormerlySerializedAs("ItemAction")] public GameAction itemAction;
     private void Awake()
     {
         btn = GetComponent<Button>();
@@ -30,7 +31,7 @@ public class StoreButton : MonoBehaviour
     public void UseAddAction(StoreItem item)
     {
         //AddAction.Raise(item);
-        item.InUse = true;
+        item.inUse = true;
         DisableButton();
     }
 
@@ -38,8 +39,8 @@ public class StoreButton : MonoBehaviour
     {
         currentItem = item;
         textLabel.text = item.name;
-        itemPreview.img.sprite = item.StorePreview;
-        itemPreview.img.color = item.PreviewColor;
+        itemPreview.img.sprite = item.storePreview;
+        itemPreview.img.color = item.previewColor;
         rectTransform.localScale = Vector3.one;
         //ItemAction = item.ItemAction;                
         //ItemAction.Raise = Raise;
@@ -48,7 +49,7 @@ public class StoreButton : MonoBehaviour
     public void DisableButton()
     {
         btn.interactable = false;
-        var color = currentItem.PreviewColor;
+        var color = currentItem.previewColor;
         color.a = .5f;
         itemPreview.img.color = color;
         //ItemAction.Raise = Raise;
@@ -56,15 +57,15 @@ public class StoreButton : MonoBehaviour
 
     public void EnableButton()
     {
-        currentItem.InUse = false;
-        itemPreview.img.color = currentItem.PreviewColor;
+        currentItem.inUse = false;
+        itemPreview.img.color = currentItem.previewColor;
         btn.interactable = true;
     }
     private void Raise(object obj)
     {
         print(obj);
         var newItem = obj as StoreItem;
-        itemPreview.img.color = currentItem.PreviewColor;
+        itemPreview.img.color = currentItem.previewColor;
         EnableButton();   
         gameObject.SetActive(false);
         //UpdateButton(newItem);

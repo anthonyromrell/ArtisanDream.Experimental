@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu]
-public class ID : ScriptableObject
+public class Id : ScriptableObject
 {
-    public UnityEvent MatchEvent;
+    [FormerlySerializedAs("MatchEvent")] public UnityEvent matchEvent;
 }

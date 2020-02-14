@@ -32,7 +32,7 @@ public class StoreFront : ScriptableObject
             
         }
         
-        if (item.InUse)
+        if (item.inUse)
         {
             newBtn.DisableButton();
 //            newBtn.btn.interactable = false;

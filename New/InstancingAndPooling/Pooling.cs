@@ -2,31 +2,32 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 public class Pooling : MonoBehaviour
 {
-   public GameObject ItemToPool;
-   public List<GameObject> Pool;
+   [FormerlySerializedAs("ItemToPool")] public GameObject itemToPool;
+   [FormerlySerializedAs("Pool")] public List<GameObject> pool;
    private int poolCount;
-   public UnityEvent StartEvent;
+   [FormerlySerializedAs("StartEvent")] public UnityEvent startEvent;
 
    private void Start()
    {
-      StartEvent.Invoke();
+      startEvent.Invoke();
    }
 
    public void AddToPool(int numberToAdd)
    {
       for (var i = 0; i < numberToAdd; i++)
       {
-         var item = Instantiate(ItemToPool);
-         Pool.Add(item);
+         var item = Instantiate(itemToPool);
+         pool.Add(item);
       }
    }
 
    public void DisableAllPoolItems()
    {
-      foreach (var item in Pool)
+      foreach (var item in pool)
       {
          item.SetActive(false);
       }
@@ -34,17 +35,17 @@ public class Pooling : MonoBehaviour
 
    public void UsePool()
    {
-      if (poolCount < Pool.Count)
+      if (poolCount < pool.Count)
       {
-         Pool[poolCount].SetActive(true);
-         Pool[poolCount].transform.position = transform.position;
+         pool[poolCount].SetActive(true);
+         pool[poolCount].transform.position = transform.position;
          poolCount++;
       }
       else
       {
          poolCount = 0;
-         Pool[poolCount].SetActive(true);
-         Pool[poolCount].transform.position = transform.position;
+         pool[poolCount].SetActive(true);
+         pool[poolCount].transform.position = transform.position;
       }
    }
 }

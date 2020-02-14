@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(menuName = "Game Control/Game Brain")]
 public class GameBrain : ScriptableObject
 {
-    public GameStateBase CurrentState;
+    [FormerlySerializedAs("CurrentState")] public GameStateBase currentState;
 }

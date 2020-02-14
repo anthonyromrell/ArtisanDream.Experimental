@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 [CreateAssetMenu]
 public class UpdateImageObj : ScriptableObject
 {
-    public FloatData Data;
+    [FormerlySerializedAs("Data")] public FloatData data;
     
     public void ChangeFillAmount(Image img)
     {
-        img.fillAmount = Data.Value;
+        img.fillAmount = data.value;
     }
 }

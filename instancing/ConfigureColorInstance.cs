@@ -1,15 +1,16 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu]
 public class ConfigureColorInstance : ScriptableObject
 {
-	public GameObject Prefab;
-	public ColorObjConfig ConfigObj;
+	[FormerlySerializedAs("Prefab")] public GameObject prefab;
+	[FormerlySerializedAs("ConfigObj")] public ColorObjConfig configObj;
 
 	public void OnConfigure()
 	{
-		var newObj = Instantiate(Prefab);
-		newObj.GetComponentInChildren<SpriteRenderer>().color = ConfigObj.Color.Value;
-		newObj.GetComponent<ObjectID>().ID = ConfigObj.Id;
+		var newObj = Instantiate(prefab);
+		newObj.GetComponentInChildren<SpriteRenderer>().color = configObj.color.value;
+		newObj.GetComponent<ObjectId>().id = configObj.id;
 	}
 }

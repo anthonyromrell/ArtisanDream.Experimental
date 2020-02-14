@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 public class MatchByTag : MonoBehaviour
 {
-    public string TagWord;
+    [FormerlySerializedAs("TagWord")] public string tagWord;
 
     private void OnTriggerEnter(Collider other)
     {
-        if ( other.CompareTag(TagWord) )
+        if ( other.CompareTag(tagWord) )
         {
             print("Event");
         }

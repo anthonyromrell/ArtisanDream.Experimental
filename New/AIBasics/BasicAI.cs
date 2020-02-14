@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.AI;
+using UnityEngine.Serialization;
 
 [RequireComponent(typeof(NavMeshAgent))]
-public class BasicAI : MonoBehaviour
+public class BasicAi : MonoBehaviour
 {
     private NavMeshAgent agent;
-    public Transform Player;
+    [FormerlySerializedAs("Player")] public Transform player;
 
     private void Start()
     {
@@ -15,6 +16,6 @@ public class BasicAI : MonoBehaviour
 
     private void Update()
     {
-        agent.destination = Player.position;
+        agent.destination = player.position;
     }
 }

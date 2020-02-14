@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 public class MoveTransform : MonoBehaviour
 {
-    public float Speed = 3;
+    [FormerlySerializedAs("Speed")] public float speed = 3;
     private Vector3 startPoint;
 
     private void Start()
@@ -12,7 +13,7 @@ public class MoveTransform : MonoBehaviour
 
     private void Update()
     {
-        transform.Translate(Speed*Time.deltaTime,0,0);
+        transform.Translate(speed*Time.deltaTime,0,0);
     }
 
     public void Restart()

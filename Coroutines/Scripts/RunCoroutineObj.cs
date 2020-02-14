@@ -1,30 +1,31 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(menuName = "Coroutines/Coroutine Object")]
 public class RunCoroutineObj : ScriptableObject, IRunCoroutine
 {
-    public Object ObjectToWork;
+    [FormerlySerializedAs("ObjectToWork")] public Object objectToWork;
     private ICall calledWorkObject;
-    public GameAction SendThisCoroutine;
-    public GameAction RunThisCoroutine;
+    [FormerlySerializedAs("SendThisCoroutine")] public GameAction sendThisCoroutine;
+    [FormerlySerializedAs("RunThisCoroutine")] public GameAction runThisCoroutine;
 
-    public Object WaitObject;
+    [FormerlySerializedAs("WaitObject")] public Object waitObject;
     public IWait WaitObj { private get; set; }
     
     public UnityEvent Event;
 
     public void OnEnable()
     {
-        WaitObj = WaitObject as IWait;
-        calledWorkObject = ObjectToWork as ICall;
+        WaitObj = waitObject as IWait;
+        calledWorkObject = objectToWork as ICall;
         WaitObj?.Create();
     }
 
     public void StartRun()
     {
-        RunThisCoroutine.RaiseNoArgs();
+        runThisCoroutine.raiseNoArgs();
     }
     
     public IEnumerator RunCoroutine()

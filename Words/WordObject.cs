@@ -31,16 +31,16 @@ public class WordObject : ScriptableObject
                 if (character != letter.name[0]) continue;
                 tempLetter = Instantiate(letterPrefab);
                 tempLetter.GetComponentInChildren<SpriteRenderer>().sprite = letter.letterSprite;
-                tempLetter.GetComponent<MatchID>().ID = letter.id;
-                tempLetter.GetComponent<AiBehaviour>().OnStart = letter.patrol;
-                tempLetter.GetComponent<AiBehaviour>().OnEnter = letter.patrol;
-                tempLetter.GetComponent<AiBehaviour>().OnExit = letter.patrol;
-                tempLetter.GetComponent<AiBehaviour>().Patrol = letter.patrol;
+                tempLetter.GetComponent<MatchId>().id = letter.id;
+                tempLetter.GetComponent<AiBehaviour>().onStart = letter.patrol;
+                tempLetter.GetComponent<AiBehaviour>().onEnter = letter.patrol;
+                tempLetter.GetComponent<AiBehaviour>().onExit = letter.patrol;
+                tempLetter.GetComponent<AiBehaviour>().patrol = letter.patrol;
                 tempLetter.name = letter.name;
                  
                 tempRing = Instantiate(ringObject);
                 tempRing.transform.parent = parentTransform;
-                tempRing.GetComponent<MatchID>().ID = letter.id;
+                tempRing.GetComponent<MatchId>().id = letter.id;
                 tempRing.name = letter.name;
                 ringPosition.x += distance;
                 pos += distance;

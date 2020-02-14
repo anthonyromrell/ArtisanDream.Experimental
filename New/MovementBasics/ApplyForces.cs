@@ -1,14 +1,17 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 public class ApplyForces : MonoBehaviour
 {
     public float holdTime = 1.0f;
-    public float PowerLevel = 10f;
+    [FormerlySerializedAs("PowerLevel")] public float powerLevel = 10f;
     public Vector3 forcesDirA, forcesDirB;
-    public UnityEvent EnableEvent, DisableEvent, TriggerEnterEvent;
+    [FormerlySerializedAs("EnableEvent")] public UnityEvent enableEvent;
+    [FormerlySerializedAs("DisableEvent")] public UnityEvent disableEvent;
+    [FormerlySerializedAs("TriggerEnterEvent")] public UnityEvent triggerEnterEvent;
     private Rigidbody rBody;
-    public BoolData DirectionBool;
+    [FormerlySerializedAs("DirectionBool")] public BoolData directionBool;
     
    
     private void Awake()
@@ -21,22 +24,22 @@ public class ApplyForces : MonoBehaviour
         Invoke(nameof(Disable), holdTime);
        
         rBody.WakeUp();
-        if (DirectionBool.value)
+        if (directionBool.value)
         {
             transform.rotation = Quaternion.Euler(0,0,0);
-            rBody.AddForce(forcesDirA*PowerLevel);
+            rBody.AddForce(forcesDirA*powerLevel);
         }
         else
         {
             transform.rotation = Quaternion.Euler(0,0,180);
-            rBody.AddForce(forcesDirB*PowerLevel);
+            rBody.AddForce(forcesDirB*powerLevel);
         }
-        EnableEvent.Invoke();
+        enableEvent.Invoke();
     }
 
     private void Disable()
     {
-        DisableEvent.Invoke();
+        disableEvent.Invoke();
         gameObject.SetActive(false);
     }
 
@@ -48,6 +51,6 @@ public class ApplyForces : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         print(other);
-        TriggerEnterEvent.Invoke();
+        triggerEnterEvent.Invoke();
     }
 }

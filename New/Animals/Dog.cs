@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu]
 public class Dog : Mammal
 {
-   public GameObject Collar;
+   [FormerlySerializedAs("Collar")] public GameObject collar;
    
    public void Bark()
    {

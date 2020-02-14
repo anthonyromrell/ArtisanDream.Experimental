@@ -1,27 +1,28 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 public class SimpleDelayBehaviour : MonoBehaviour
 {
     //public Object WaitObject;
     //public IWait Waitobj;
-    public float Seconds;
+    [FormerlySerializedAs("Seconds")] public float seconds;
     public UnityEvent Event;
     private WaitForSeconds wait;
     
     private void Start()
     {
-        wait = new WaitForSeconds(Seconds);
+        wait = new WaitForSeconds(seconds);
     }
 
     public void Run()
     {
-        StartCoroutine(IRunCoroutine());
+        StartCoroutine(RunCoroutine());
     }
     
     // Start is called before the first frame update
-    IEnumerator IRunCoroutine()
+    IEnumerator RunCoroutine()
     {
         yield return wait;
         Event.Invoke();

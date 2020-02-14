@@ -1,40 +1,41 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 
-public class MatchByID : MonoBehaviour
+public class MatchById : MonoBehaviour
 {
-    public ID[] IdObj;
-    public UnityEvent StartEvent;
-    public List<UnityEvent> Events;
+    public Id[] idObj;
+    public UnityEvent startEvent;
+    public List<UnityEvent> events;
 
     private void Start()
     {
-        StartEvent.Invoke();
+        startEvent.Invoke();
     }
 
     public void ConfigEvents()
     {
-        foreach (var obj in IdObj)
+        foreach (var obj in idObj)
         {
             var newEvent = new UnityEvent();
-            newEvent.AddListener(obj.MatchEvent.Invoke);
-            Events.Add(newEvent);
+            newEvent.AddListener(obj.matchEvent.Invoke);
+            events.Add(newEvent);
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        var otherIdObj = other.GetComponent<MatchByID>();
+        var otherIdObj = other.GetComponent<MatchById>();
 
-        foreach (var otherObj in otherIdObj.IdObj)
+        foreach (var otherObj in otherIdObj.idObj)
         {
-            for (var index = 0; index < IdObj.Length; index++)
+            for (var index = 0; index < idObj.Length; index++)
             {
-                var obj = IdObj[index];
+                var obj = idObj[index];
                 if (obj != otherObj) continue;
-                if (Events.Count > 0) Events[index].Invoke();
+                if (events.Count > 0) events[index].Invoke();
             }
         }      
     }

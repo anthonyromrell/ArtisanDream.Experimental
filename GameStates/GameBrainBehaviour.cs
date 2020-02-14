@@ -1,20 +1,21 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 
 public class GameBrainBehaviour : StateMachineBehaviour
 {
-    public GameBrain CurrentBrain;
+    [FormerlySerializedAs("CurrentBrain")] public GameBrain currentBrain;
 
     // OnStateEnter is called before OnStateEnter is called on any state inside this state machine
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        CurrentBrain.CurrentState.StartState();
+        currentBrain.currentState.StartState();
     }
 
     // OnStateUpdate is called before OnStateUpdate is called on any state inside this state machine
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        CurrentBrain.CurrentState.RunState();
+        currentBrain.currentState.RunState();
     }
 
     // OnStateExit is called before OnStateExit is called on any state inside this state machine

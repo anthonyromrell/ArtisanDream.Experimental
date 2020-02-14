@@ -17,7 +17,7 @@ public class InstanceDestroyDeactivate : ScriptableObject
 
    public void UseObjAtLocation(Vector3Data location)
    {
-      obj.transform.localPosition = location.Value;
+      obj.transform.localPosition = location.value;
    }
 
    public void InstanceObj (GameObject gObj)

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 public class LaserBeam : MonoBehaviour
 {
@@ -9,8 +10,10 @@ public class LaserBeam : MonoBehaviour
     public GameObject beam;
     private LineRenderer line;
     public Transform endPoint;
-    public UnityEvent EnableEvent, DisableEvent, TriggerEnterEvent;
-    public BoolData DirectionBool;
+    [FormerlySerializedAs("EnableEvent")] public UnityEvent enableEvent;
+    [FormerlySerializedAs("DisableEvent")] public UnityEvent disableEvent;
+    [FormerlySerializedAs("TriggerEnterEvent")] public UnityEvent triggerEnterEvent;
+    [FormerlySerializedAs("DirectionBool")] public BoolData directionBool;
     
     [Header("Adjustable Variables")]
     public float beamEndOffset = 1f; //How far from the raycast hit point the end effect is positioned
@@ -24,11 +27,11 @@ public class LaserBeam : MonoBehaviour
     {
         line = beam.GetComponent<LineRenderer>();
         Invoke(nameof(Disable), holdTime);
-        EnableEvent.Invoke();
+        enableEvent.Invoke();
         
         wfsObj = ScriptableObject.CreateInstance<WaitForFixedUpdateObj>();
         
-        if (DirectionBool.value)
+        if (directionBool.value)
         {
            //transform.rotation = Quaternion.Euler(0,0,0);
         }
@@ -37,7 +40,7 @@ public class LaserBeam : MonoBehaviour
           // transform.rotation = Quaternion.Euler(0,180,0);
         }
         StartCoroutine(ShootBeamInDir()) ;
-        EnableEvent.Invoke();
+        enableEvent.Invoke();
     }
 
     private IEnumerator ShootBeamInDir()
@@ -66,7 +69,7 @@ public class LaserBeam : MonoBehaviour
     
     private void Disable()
     {
-        DisableEvent.Invoke();
+        disableEvent.Invoke();
         gameObject.SetActive(false);
     }
     

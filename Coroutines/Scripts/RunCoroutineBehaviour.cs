@@ -1,22 +1,23 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 public class RunCoroutineBehaviour : MonoBehaviour
 {
-    public GameAction GetCoroutineObject;
-    public GameAction CoroutineActionRun;
+    [FormerlySerializedAs("GetCoroutineObject")] public GameAction getCoroutineObject;
+    [FormerlySerializedAs("CoroutineActionRun")] public GameAction coroutineActionRun;
     private IRunCoroutine objectToRun;
-    public UnityEvent StartEvent;
+    [FormerlySerializedAs("StartEvent")] public UnityEvent startEvent;
 
     private void Awake()
     {
-        GetCoroutineObject.Raise += GetObjectHandler;
-        CoroutineActionRun.RaiseNoArgs += RunCoroutineActionHandler;
+        getCoroutineObject.raise += GetObjectHandler;
+        coroutineActionRun.raiseNoArgs += RunCoroutineActionHandler;
     }
 
     private void Start()
     {
-        StartEvent.Invoke();
+        startEvent.Invoke();
     }
 
     public void GetObjectHandler (object obj)

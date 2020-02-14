@@ -1,24 +1,25 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(menuName = "Change Object")]
 public class ChangeObject : ScriptableObject
 {
     public ColorData Color { private get;  set; }
-    public NameID Id { private get; set; }
-    public GameAction SendChange;
+    public NameId Id { private get; set; }
+    [FormerlySerializedAs("SendChange")] public GameAction sendChange;
 
     public void Change(SpriteRenderer spriteRenderer)
     {
-        spriteRenderer.color = Color.Value;
+        spriteRenderer.color = Color.value;
     }
 
     public void Change(Material material)
     {
-        material.color = Color.Value;
+        material.color = Color.value;
     }
     
-    public void Change(MatchID matchId)
+    public void Change(MatchId matchId)
     {
-        matchId.ID = Id;
+        matchId.id = Id;
     }
 }

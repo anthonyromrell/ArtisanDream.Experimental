@@ -1,22 +1,26 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 public class SimpleCoroutine : MonoBehaviour
 {
-    public UnityEvent StartEvent, OnEnableEvent, CoroutineEvent, EndCountDownEvent;
-    public float StartHoldTime = 0;
-    public float RepeatHoldTime = 1;
+    [FormerlySerializedAs("StartEvent")] public UnityEvent startEvent;
+    [FormerlySerializedAs("OnEnableEvent")] public UnityEvent onEnableEvent;
+    [FormerlySerializedAs("CoroutineEvent")] public UnityEvent coroutineEvent;
+    [FormerlySerializedAs("EndCountDownEvent")] public UnityEvent endCountDownEvent;
+    [FormerlySerializedAs("StartHoldTime")] public float startHoldTime = 0;
+    [FormerlySerializedAs("RepeatHoldTime")] public float repeatHoldTime = 1;
     public bool CanRun { private get; set; }
 
     private void Start()
     {
-        StartEvent.Invoke();
+        startEvent.Invoke();
     }
 
     private void OnEnable()
     {
-        OnEnableEvent.Invoke();
+        onEnableEvent.Invoke();
     }
 
     public void OnStartCoroutine()
@@ -27,28 +31,28 @@ public class SimpleCoroutine : MonoBehaviour
     private IEnumerator RunCoroutine()
     {
         CanRun = true;
-        yield return new WaitForSeconds(StartHoldTime);
+        yield return new WaitForSeconds(startHoldTime);
         
         while (CanRun)
         {
-            CoroutineEvent.Invoke();
-            yield return new WaitForSeconds(RepeatHoldTime);
+            coroutineEvent.Invoke();
+            yield return new WaitForSeconds(repeatHoldTime);
         } 
     }
 
-    public int CountDownNum;
+    [FormerlySerializedAs("CountDownNum")] public int countDownNum;
     
     public void CountDown()
     {
-        CountDownNum--;
-        if (CountDownNum <= 0)
+        countDownNum--;
+        if (countDownNum <= 0)
         {
-           EndCountDownEvent.Invoke();
+           endCountDownEvent.Invoke();
         }
     }
 
     public void ResetCountDownNum(int num)
     {
-        CountDownNum = num;
+        countDownNum = num;
     }
 }

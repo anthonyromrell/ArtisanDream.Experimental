@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu]
 public class Mammal : Animal
 {
-   public int FurCount = 10000;
-   public Color FurColor = Color.black;
+   [FormerlySerializedAs("FurCount")] public int furCount = 10000;
+   [FormerlySerializedAs("FurColor")] public Color furColor = Color.black;
 }

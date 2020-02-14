@@ -1,15 +1,16 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 public class StartCoroutineBehavior : MonoBehaviour
 {
     [SerializeField] private Object coroutineObj;
     public IRunCoroutine CoroutineObj { private get; set; }
-    public bool CanRunAtStart;
+    [FormerlySerializedAs("CanRunAtStart")] public bool canRunAtStart;
     
     private void Start()
     {
         CoroutineObj = coroutineObj as IRunCoroutine;
-        if (CoroutineObj != null && CanRunAtStart) StartCoroutine(CoroutineObj.RunCoroutine());
+        if (CoroutineObj != null && canRunAtStart) StartCoroutine(CoroutineObj.RunCoroutine());
     }
 
     public void Run()

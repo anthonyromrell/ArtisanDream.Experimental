@@ -1,17 +1,18 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(menuName = "Coroutines/Coroutine Delay")]
 public class CoroutineDelay : ScriptableObject, IRunCoroutine
 {
     public UnityEvent Event;
-    public Object WaitObject;
+    [FormerlySerializedAs("WaitObject")] public Object waitObject;
     public IWait WaitObj { private get; set; }
     
     public void OnEnable()
     {
-        WaitObj = WaitObject as IWait;
+        WaitObj = waitObject as IWait;
         WaitObj?.Create();
     }
     

@@ -1,14 +1,15 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 public class GameStateBehaviour : StateMachineBehaviour
 {
-    public GameBrain CurrentBrain;
-    public GameStateBase ThisGameState;
+    [FormerlySerializedAs("CurrentBrain")] public GameBrain currentBrain;
+    [FormerlySerializedAs("ThisGameState")] public GameStateBase thisGameState;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        CurrentBrain.CurrentState = ThisGameState;
+        currentBrain.currentState = thisGameState;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

@@ -1,23 +1,25 @@
 ﻿using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu]
 public class StoreItem : ScriptableObject
 {
-    public GameAction ItemAction;
-    public Sprite StorePreview;
-    public GameObject UsableItem;
-    public UnityEvent OnPurchase, OnUse;
-    public Color PreviewColor;
+    [FormerlySerializedAs("ItemAction")] public GameAction itemAction;
+    [FormerlySerializedAs("StorePreview")] public Sprite storePreview;
+    [FormerlySerializedAs("UsableItem")] public GameObject usableItem;
+    [FormerlySerializedAs("OnPurchase")] public UnityEvent onPurchase;
+    [FormerlySerializedAs("OnUse")] public UnityEvent onUse;
+    [FormerlySerializedAs("PreviewColor")] public Color previewColor;
 
     public int price;
     public bool purchased;
-    public bool InUse;
+    [FormerlySerializedAs("InUse")] public bool inUse;
 
     public void OnEnable()
     {
-        ItemAction = ScriptableObject.CreateInstance<GameAction>();
+        itemAction = ScriptableObject.CreateInstance<GameAction>();
     }
 
     public void OnUpdate()

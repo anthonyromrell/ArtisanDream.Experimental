@@ -1,38 +1,40 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu]
 public class FloatDataObj : ScriptableObject
 {
-    public float Value;
+    [FormerlySerializedAs("Value")] public float value;
 
-    public UnityEvent MinValueEvent, MaxValueEvent;
-    
+    [FormerlySerializedAs("MinValueEvent")] public UnityEvent minValueEvent;
+    [FormerlySerializedAs("MaxValueEvent")] public UnityEvent maxValueEvent;
+
     public void UpdateValue (float amount)
     {
-        Value += amount;
+        value += amount;
     }
     
     public void ResetValue (float amount)
     {
-        Value = amount;
+        value = amount;
     }
     
     public void CheckMinValue(float minValue)
     {
-        if (Value <= minValue)
+        if (value <= minValue)
         {
-            Value = minValue;
-            MinValueEvent.Invoke();
+            value = minValue;
+            minValueEvent.Invoke();
         }
     }
 
     public void CheckMaxValue(float maxValue)
     {
-        if (Value >= maxValue)
+        if (value >= maxValue)
         {
-            Value = maxValue;
-            MaxValueEvent.Invoke();
+            value = maxValue;
+            maxValueEvent.Invoke();
         }
     }
 }

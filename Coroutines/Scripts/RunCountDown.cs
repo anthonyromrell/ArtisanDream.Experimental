@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 //Made By Anthony Romrell
@@ -7,20 +8,20 @@ namespace ArtisanDream.Experimental.Counter
 {
 	public class RunCountDown : MonoBehaviour
 	{
-		public float Seconds = 1.0f;
-		public int Number = 3;
+		[FormerlySerializedAs("Seconds")] public float seconds = 1.0f;
+		[FormerlySerializedAs("Number")] public int number = 3;
 		private Text label;
 	
 		IEnumerator Start ()
 		{
 			label = GetComponent<Text>();
 
-			while (Number > 0)
+			while (number > 0)
 			{
 		    
-				yield return new WaitForSeconds(Seconds);
-				label.text = Number.ToString();
-				Number--;
+				yield return new WaitForSeconds(seconds);
+				label.text = number.ToString();
+				number--;
 			}
 			//label.text = "";
 			yield return new WaitForSeconds(1);

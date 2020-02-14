@@ -1,22 +1,25 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 public class MonoEvents : MonoBehaviour
 {
-    public UnityEvent StartEvent, TriggerEnterEvent, MouseDownEvent;
+    [FormerlySerializedAs("StartEvent")] public UnityEvent startEvent;
+    [FormerlySerializedAs("TriggerEnterEvent")] public UnityEvent triggerEnterEvent;
+    [FormerlySerializedAs("MouseDownEvent")] public UnityEvent mouseDownEvent;
 
     private void Start()
     {
-        StartEvent.Invoke();
+        startEvent.Invoke();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        TriggerEnterEvent.Invoke();
+        triggerEnterEvent.Invoke();
     }
 
     private void OnMouseDown()
     {
-        MouseDownEvent.Invoke();
+        mouseDownEvent.Invoke();
     }
 }

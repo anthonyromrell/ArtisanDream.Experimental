@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class UpdateText : MonoBehaviour
 {
-	public IntData Data;
+	[FormerlySerializedAs("Data")] public IntData data;
 	private Text label;
-	public string Format = "C0";
+	[FormerlySerializedAs("Format")] public string format = "C0";
 	
 	void Start ()
 	{
@@ -15,6 +16,6 @@ public class UpdateText : MonoBehaviour
 
 	public void OnUpdate()
 	{
-		label.text = Data.Value.ToString(Format);
+		label.text = data.Value.ToString(format);
 	}
 }

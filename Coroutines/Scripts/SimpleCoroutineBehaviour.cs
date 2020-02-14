@@ -1,16 +1,17 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 public class SimpleCoroutineBehaviour : MonoBehaviour
 {
-    public float Seconds = 1;
+    [FormerlySerializedAs("Seconds")] public float seconds = 1;
     private WaitForSeconds wait;
     public UnityEvent Event;
 
     private void Awake()
     {
-        wait = new WaitForSeconds(Seconds);
+        wait = new WaitForSeconds(seconds);
     }
 
     private IEnumerator Start()

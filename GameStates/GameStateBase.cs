@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 
 public abstract class GameStateBase : ScriptableObject, IGameState
 {
-    public GameBrain Brain;
+    [FormerlySerializedAs("Brain")] public GameBrain brain;
 
     public abstract void StartState();
     public abstract void RunState();

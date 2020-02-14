@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Conditionals : MonoBehaviour
 {
     public bool check;
-    private bool OtherCheck;
-    private bool OtherOtherCheck;
-    private bool OtherOtherOtherCheck;
+    private bool otherCheck;
+    private bool otherOtherCheck;
+    private bool otherOtherOtherCheck;
 
-    public int GameNum;
+    [FormerlySerializedAs("GameNum")] public int gameNum;
 
     public enum GameStates 
     {
@@ -35,15 +36,15 @@ public class Conditionals : MonoBehaviour
         {
            //Do Work 
         }
-        else if (OtherCheck)
+        else if (otherCheck)
         { 
             // Do Other Work
         }
-        else if (OtherOtherCheck)
+        else if (otherOtherCheck)
         {
             // Do Other Other Work
         }
-        else if (OtherOtherOtherCheck)
+        else if (otherOtherOtherCheck)
         {
             // Do Other Other Work
         }
@@ -74,7 +75,7 @@ public class Conditionals : MonoBehaviour
                 break;
         }
 
-        switch (GameNum)
+        switch (gameNum)
         {
             case 1:
                 //Do Work

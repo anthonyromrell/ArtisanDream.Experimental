@@ -10,6 +10,6 @@ public class DebugObj : ScriptableObject
     
     public void OnDebug(FloatDataObj obj)
     {
-        Debug.Log(obj.Value);
+        Debug.Log(obj.value);
     }
 }

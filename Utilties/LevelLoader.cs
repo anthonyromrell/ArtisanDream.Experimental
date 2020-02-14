@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using Object = UnityEngine.Object;
 
 [CreateAssetMenu(menuName = "Utilities/Game LevelLoader")]
@@ -13,13 +14,13 @@ public class LevelLoader : ScriptableObject
         LoadSceneAsync
     }
 
-    public LoadTypes LoadType;
+    [FormerlySerializedAs("LoadType")] public LoadTypes loadType;
 
     public void Load(Object scene)
     {
         var newScene = scene.name;
 
-        switch (LoadType)
+        switch (loadType)
         {
             case LoadTypes.LoadScene:
                 SceneManager.LoadScene(newScene);

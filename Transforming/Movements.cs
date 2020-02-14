@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace ArtisanDream.Experimental.Transforming
 {
@@ -11,27 +12,27 @@ namespace ArtisanDream.Experimental.Transforming
 			MoveZ
 		}
 
-		public MovementType CurrentMovementType;
+		[FormerlySerializedAs("CurrentMovementType")] public MovementType currentMovementType;
 
-		public Vector3 Movement;
-		public float Speed;
+		[FormerlySerializedAs("Movement")] public Vector3 movement;
+		[FormerlySerializedAs("Speed")] public float speed;
 
 	
 		// Update is called once per frame
 		void Update () {
-			switch (CurrentMovementType)
+			switch (currentMovementType)
 			{
 				case MovementType.MoveX:
-					Movement.x = Speed;
+					movement.x = speed;
 					break;
 				case MovementType.MoveY:
-					Movement.y = Speed;
+					movement.y = speed;
 					break;
 				case MovementType.MoveZ:
-					Movement.z = Speed;
+					movement.z = speed;
 					break;
 			}
-			transform.Rotate(Movement*Time.deltaTime);
+			transform.Rotate(movement*Time.deltaTime);
 		}
 	}
 }

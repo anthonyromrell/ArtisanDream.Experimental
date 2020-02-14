@@ -2,50 +2,53 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 [RequireComponent(typeof(Rigidbody))]
 public class ApplyForce : MonoBehaviour
 {
 
-    public Transform StartPoint;
+    [FormerlySerializedAs("StartPoint")] public Transform startPoint;
     private Rigidbody rigid;
-    public Vector3 Forces;
-    public float HoldTime = 3;
+    [FormerlySerializedAs("Forces")] public Vector3 forces;
+    [FormerlySerializedAs("HoldTime")] public float holdTime = 3;
     private Coroutine cr;
-    public bool UseGravity = false;
-    public UnityEvent CanRunEvent, StartEvent, ResetEvent;
+    [FormerlySerializedAs("UseGravity")] public bool useGravity = false;
+    [FormerlySerializedAs("CanRunEvent")] public UnityEvent canRunEvent;
+    [FormerlySerializedAs("StartEvent")] public UnityEvent startEvent;
+    [FormerlySerializedAs("ResetEvent")] public UnityEvent resetEvent;
 
     private void Start()
     {
         rigid = GetComponent<Rigidbody>();
         rigid.Sleep();
-        CanRunEvent.AddListener(UseApplyForce);
+        canRunEvent.AddListener(UseApplyForce);
     }
 
     public void RunApplyForce()
     {
-        CanRunEvent.Invoke();
+        canRunEvent.Invoke();
     }
 
     private void UseApplyForce()
     {
-        StartEvent.Invoke();
+        startEvent.Invoke();
         
         rigid.WakeUp();
-        rigid.useGravity = UseGravity;
-        rigid.AddForce(Forces);
+        rigid.useGravity = useGravity;
+        rigid.AddForce(forces);
         
         if (cr == null)
         {
             cr = StartCoroutine(Hold());
         }
-        CanRunEvent.RemoveListener(UseApplyForce);
+        canRunEvent.RemoveListener(UseApplyForce);
     }
 
     private IEnumerator Hold()    
     {
-        yield return new WaitForSeconds(HoldTime);
-        ResetEvent.Invoke();
+        yield return new WaitForSeconds(holdTime);
+        resetEvent.Invoke();
     }
 
     public void Reset()
@@ -53,9 +56,9 @@ public class ApplyForce : MonoBehaviour
         rigid.useGravity = false;
         var transformObj = transform;
         transformObj.rotation = Quaternion.identity;
-        transformObj.position = StartPoint.position;
+        transformObj.position = startPoint.position;
         rigid.Sleep();
         cr = null;
-        CanRunEvent.AddListener(UseApplyForce);
+        canRunEvent.AddListener(UseApplyForce);
     }
 }

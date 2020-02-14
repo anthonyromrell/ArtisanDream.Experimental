@@ -1,18 +1,19 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 //Made By Anthony Romrell
 [CreateAssetMenu(menuName = "Instancing/SpriteConfig")]
 public class SpriteConfig : ScriptableObject
 {
-	public GameObject Prefab;
-	public Sprite SpriteImage;
-	public Color SpriteColor;
+	[FormerlySerializedAs("Prefab")] public GameObject prefab;
+	[FormerlySerializedAs("SpriteImage")] public Sprite spriteImage;
+	[FormerlySerializedAs("SpriteColor")] public Color spriteColor;
 
 	public void OnConfigure()
 	{
-		var newPrefab = Instantiate(Prefab);
+		var newPrefab = Instantiate(prefab);
 		var newSprite = newPrefab.GetComponent<SpriteRenderer>();
-		newSprite.sprite = SpriteImage;
-		newSprite.color = SpriteColor;
+		newSprite.sprite = spriteImage;
+		newSprite.color = spriteColor;
 	}
 }

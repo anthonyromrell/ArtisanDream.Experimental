@@ -16,6 +16,6 @@ public class UpdateText : MonoBehaviour
 
 	public void OnUpdate()
 	{
-		label.text = data.Value.ToString(format);
+		label.text = data.value.ToString(format);
 	}
 }

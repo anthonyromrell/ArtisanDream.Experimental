@@ -6,10 +6,10 @@ using UnityEngine.Serialization;
 	public class RandomColor : ScriptableObject
 	{
  
-		[FormerlySerializedAs("ColorIdList")] public List<ColorData> colorIdList;
- 
-		[FormerlySerializedAs("RandonColor")] public ColorData randonColor;
+		public List<ColorData> colorIdList;
+		public ColorData randonColor;
  	
+		
 		public void OnEnable()
 		{
 			var value = UnityEngine.Random.Range(0, colorIdList.Count);

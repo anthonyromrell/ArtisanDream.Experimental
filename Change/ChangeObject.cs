@@ -6,7 +6,7 @@ public class ChangeObject : ScriptableObject
 {
     public ColorData Color { private get;  set; }
     public NameId Id { private get; set; }
-    [FormerlySerializedAs("SendChange")] public GameAction sendChange;
+    public GameAction sendChange;
 
     public void Change(SpriteRenderer spriteRenderer)
     {
@@ -18,8 +18,4 @@ public class ChangeObject : ScriptableObject
         material.color = Color.value;
     }
     
-    public void Change(MatchId matchId)
-    {
-        matchId.id = Id;
-    }
 }

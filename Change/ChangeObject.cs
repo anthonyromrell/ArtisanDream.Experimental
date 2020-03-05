@@ -18,8 +18,8 @@ public class ChangeObject : ScriptableObject
         material.color = Color.value;
     }
     
-    public void Change(MatchId matchId)
-    {
-        matchId.id = Id;
-    }
+  //  public void Change(MatchId matchId)
+  //  {
+  //      matchId.id = Id;
+   // }
 }

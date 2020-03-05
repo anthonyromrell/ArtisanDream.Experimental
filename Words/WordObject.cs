@@ -31,7 +31,7 @@ public class WordObject : ScriptableObject
                 if (character != letter.name[0]) continue;
                 tempLetter = Instantiate(letterPrefab);
                 tempLetter.GetComponentInChildren<SpriteRenderer>().sprite = letter.letterSprite;
-                tempLetter.GetComponent<MatchId>().id = letter.id;
+//                tempLetter.GetComponent<MatchId>().id = letter.id;
                 tempLetter.GetComponent<AiBehaviour>().onStart = letter.patrol;
                 tempLetter.GetComponent<AiBehaviour>().onEnter = letter.patrol;
                 tempLetter.GetComponent<AiBehaviour>().onExit = letter.patrol;
@@ -40,7 +40,7 @@ public class WordObject : ScriptableObject
                  
                 tempRing = Instantiate(ringObject);
                 tempRing.transform.parent = parentTransform;
-                tempRing.GetComponent<MatchId>().id = letter.id;
+    //            tempRing.GetComponent<MatchId>().id = letter.id;
                 tempRing.name = letter.name;
                 ringPosition.x += distance;
                 pos += distance;

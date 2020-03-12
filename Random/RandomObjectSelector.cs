@@ -1,12 +1,10 @@
-﻿using UnityEngine;
-using UnityEngine.Serialization;
-
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 [CreateAssetMenu(menuName = "Random/Object Selector")]
 public class RandomObjectSelector : ScriptableObject
 {
-    [FormerlySerializedAs("ObjectList")] public GenericObjects objectList;
-    [FormerlySerializedAs("Value")] public Object value;
+    public List<Object> objectList;
 
     private void OnEnable()
     {
@@ -18,8 +16,7 @@ public class RandomObjectSelector : ScriptableObject
 
     public Object ReturnRandomObject()
     {
-        var obj = Random.Range(0, objectList.items.Count - 1);
-        value = objectList.items[obj];
-        return value;
+        var obj = Random.Range(0, objectList.Count - 1);
+        return objectList[obj];;
     }
 }

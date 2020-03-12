@@ -11,6 +11,6 @@ public class ConfigureColorInstance : ScriptableObject
 	{
 		var newObj = Instantiate(prefab);
 		newObj.GetComponentInChildren<SpriteRenderer>().color = configObj.color.value;
-		newObj.GetComponent<ObjectId>().id = configObj.id;
+		newObj.GetComponent<IdBehaviour>().nameIdObj = configObj.id;
 	}
 }

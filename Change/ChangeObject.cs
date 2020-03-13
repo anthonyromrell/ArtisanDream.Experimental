@@ -4,21 +4,21 @@
 public class ChangeObject : ScriptableObject
 {
     public ColorData Color { private get;  set; }
-    public NameID Id { private get; set; }
+    public NameId Id { private get; set; }
     public GameAction SendChange;
 
     public void Change(SpriteRenderer spriteRenderer)
     {
-        spriteRenderer.color = Color.Value;
+        spriteRenderer.color = Color.value;
     }
 
     public void Change(Material material)
     {
-        material.color = Color.Value;
+        material.color = Color.value;
     }
     
-    public void Change(MatchID matchId)
+    public void Change(MatchIdBehaviour matchId)
     {
-        matchId.ID = Id;
+        matchId.nameIdObj = Id;
     }
 }

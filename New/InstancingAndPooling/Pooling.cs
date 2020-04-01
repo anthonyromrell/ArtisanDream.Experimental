@@ -6,10 +6,10 @@ using UnityEngine.Serialization;
 
 public class Pooling : MonoBehaviour
 {
-   [FormerlySerializedAs("ItemToPool")] public GameObject itemToPool;
-   [FormerlySerializedAs("Pool")] public List<GameObject> pool;
+   public GameObject itemToPool;
+   public List<GameObject> pool;
    private int poolCount;
-   [FormerlySerializedAs("StartEvent")] public UnityEvent startEvent;
+   public UnityEvent startEvent;
 
    private void Start()
    {

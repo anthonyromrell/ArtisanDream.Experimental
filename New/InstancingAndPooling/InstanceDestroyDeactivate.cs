@@ -3,7 +3,7 @@
 [CreateAssetMenu]
 public class InstanceDestroyDeactivate : ScriptableObject
 {
-   private GameObject obj;
+   public GameObject obj;
 
    public void ObjectToInstanceOrUse (GameObject gObj)
    {
@@ -13,6 +13,11 @@ public class InstanceDestroyDeactivate : ScriptableObject
    public void InstanceObjAtLocation(Transform location)
    {
       Instantiate(obj, location.position, Quaternion.identity);
+   }
+   
+   public void InstanceAndParent(Transform parentObj)
+   {
+      Instantiate(obj, parentObj);
    }
 
    public void UseObjAtLocation(Vector3Data location)

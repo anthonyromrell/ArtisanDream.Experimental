@@ -20,8 +20,7 @@ namespace Weapons
 
         private void OnTriggerEnter(Collider obj)
         {
-            SendWeapon.Raise(Data);
-            WeaponNum.Value++;
+            
             GetComponent<BoxCollider>().enabled = false;
             transform.parent = attachPoint.transform;
             Invoke(nameof(Attach), 0.25f);
@@ -40,7 +39,7 @@ namespace Weapons
 
         private void OnApplicationQuit()
         {
-            WeaponNum.Value = 0;
+            WeaponNum.value = 0;
         }
         
         public void Fire(bool canFire)

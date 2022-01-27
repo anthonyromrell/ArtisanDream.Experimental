@@ -6,6 +6,6 @@ using UnityEngine.Serialization;
 [CreateAssetMenu]
 public class ColorObjConfig : ScriptableObject
 {
-	[FormerlySerializedAs("Id")] public NameId id;
+	[FormerlySerializedAs("Id")] public NameID id;
 	[FormerlySerializedAs("Color")] public ColorData color;
 }

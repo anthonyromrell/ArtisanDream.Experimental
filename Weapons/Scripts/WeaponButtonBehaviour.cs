@@ -24,9 +24,9 @@ namespace Weapons
 
         private void Start()
         {
-            SendWeapon.Raise += GetWeaponHandler;
+            
             button = GetComponent<Image>();
-            EndGame.RaiseNoArgs += EndGameHandler;
+            
             wffObj = ScriptableObject.CreateInstance<WaitForFixedUpdateObj>();
             wfsObj = ScriptableObject.CreateInstance<WaitForSecondsObj>();
             
@@ -40,7 +40,7 @@ namespace Weapons
         private void GetWeaponHandler(object obj)
         {
             var data = obj as WeaponData;
-            if (WeaponNumData.Value != WeaponNum) return;
+            if (WeaponNumData.value != WeaponNum) return;
             WeaponDataObject = data;
             button.color = WeaponDataObject.activeColor;
             weaponBar.color = WeaponDataObject.activeColor;
@@ -61,14 +61,14 @@ namespace Weapons
             if (tempAmount < 0) tempAmount = 0;
             
             WeaponDataObject.WeaponObject.Fire(true);
-            FireWeapon.RaiseNoArgs();
+            //FireWeapon.RaiseNoArgs();
             
             while (weaponBar.fillAmount > tempAmount)
             {
                 weaponBar.fillAmount -= V;
                 yield return wffObj;
             }
-            wfsObj.Seconds = WeaponDataObject.fireRate;
+            //wfsObj.Seconds = WeaponDataObject.fireRate;
             yield return wfsObj;
             WeaponDataObject.totalAmmo = weaponBar.fillAmount;
             WaitToFire = null;

@@ -6,6 +6,6 @@ using UnityEngine;
 public class LetterObject : ScriptableObject
 {
 	public Sprite letterSprite;
-	public NameId id;
+	public NameID id;
 	public AiPatrol patrol;
 }

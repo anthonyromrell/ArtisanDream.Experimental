@@ -28,14 +28,7 @@ public class AmmoProjectileBehaviour : MonoBehaviour
         var particles = projectile.GetComponent<ParticleSystem>();
         var impactParticles = impact.GetComponent<ParticleSystem>();
         
-        forces.EnableEvent.AddListener(delegate { impactParticles.Stop(); });
-        forces.EnableEvent.AddListener(delegate { particles.Play(); });
-        
-        forces.DisableEvent.AddListener(delegate { impactParticles.Play(); });
-        forces.DisableEvent.AddListener(delegate { particles.Stop(); });
-        
-        forces.TriggerEnterEvent.AddListener(delegate { impactParticles.Play(); });
-        forces.TriggerEnterEvent.AddListener(delegate { particles.Stop(); });
+       
         rigid.Sleep();
     }
 }

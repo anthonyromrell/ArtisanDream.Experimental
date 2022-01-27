@@ -32,10 +32,10 @@ public class WordObject : ScriptableObject
                 tempLetter = Instantiate(letterPrefab);
                 tempLetter.GetComponentInChildren<SpriteRenderer>().sprite = letter.letterSprite;
 //                tempLetter.GetComponent<MatchId>().id = letter.id;
-                tempLetter.GetComponent<AiBehaviour>().onStart = letter.patrol;
-                tempLetter.GetComponent<AiBehaviour>().onEnter = letter.patrol;
-                tempLetter.GetComponent<AiBehaviour>().onExit = letter.patrol;
-                tempLetter.GetComponent<AiBehaviour>().patrol = letter.patrol;
+                // tempLetter.GetComponent<AiBehaviour>().onStart = letter.patrol;
+                // tempLetter.GetComponent<AiBehaviour>().onEnter = letter.patrol;
+                // tempLetter.GetComponent<AiBehaviour>().onExit = letter.patrol;
+                // tempLetter.GetComponent<AiBehaviour>().patrol = letter.patrol;
                 tempLetter.name = letter.name;
                  
                 tempRing = Instantiate(ringObject);

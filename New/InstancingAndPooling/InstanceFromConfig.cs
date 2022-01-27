@@ -16,13 +16,13 @@ public class InstanceFromConfig : MonoBehaviour
     {
         
         pool = GetComponent<Pooling>();
-        var item = pool.ItemToPool.GetComponent<AmmoProjectileBehaviour>().ammoConfig;
-        var newItem = Instantiate(item.flash, transform);
-        newItem.transform.Rotate(0,90,0);
-        newItem.transform.localScale = Vector3.one*10;
-        newItem.SetActive(false);
-        OutsideAction.RaiseNoArgs = RaiseNoArgs;
-        activateEvent.AddListener(delegate { newItem.SetActive(true); });;
+        // var item = pool.ItemToPool.GetComponent<AmmoProjectileBehaviour>().ammoConfig;
+        // var newItem = Instantiate(item.flash, transform);
+        // newItem.transform.Rotate(0,90,0);
+        // newItem.transform.localScale = Vector3.one*10;
+        // newItem.SetActive(false);
+        // OutsideAction.RaiseNoArgs = RaiseNoArgs;
+        // activateEvent.AddListener(delegate { newItem.SetActive(true); });;
     }
 
     private void RaiseNoArgs()
